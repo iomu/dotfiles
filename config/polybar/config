@@ -1,0 +1,329 @@
+[colors]
+;background = #A01D1F21
+background = #1AFFFFFF
+;background-alt = #de373B41
+background-alt = #2aFFFFFF
+foreground = #f3f4f5
+foreground-alt = #f3f4f5
+foreground-dim = #676e7d
+primary = #ffb52a
+secondary = #fe60053
+alert = #ff6600
+
+high = #268bd2
+high-alt = #0c2b41
+
+red=      #A54242
+reddark = #A50000
+green=     #8C9440
+greendark = #869401
+yellowdark= #DE5F08
+yellow=      #DE935F
+blue=     #5F819D
+bluedark=     #0B5B9D
+magenta=     #6c71c3
+cyan=     #80cbc3
+white=      #ffffff
+purple = #85678F
+purpledark = #6F0F8F
+
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/main]
+bottom = false
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
+
+;background = ${xrdb:color9}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 2
+overline-color = #f00
+underline-size = 2
+underline-color = ${colors.blue}
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+
+font-0 = Roboto Mono:pixelsize=10;1
+font-1 = Roboto Mono:fontformat=truetype:size=10:antialias=false;0
+font-2 = Wuncon Siji:pixelsize=10;1
+font-3 = FontAwesome:pixelsize=10;1
+font-4 = Siji:pixelsize=10;1
+font-5 = Material Icons:pixelsize=12;1
+font-6 = Roboto Mono NerdFont:pixelsize=12;1
+
+modules-left = bspwm 
+modules-center = xwindow
+modules-right = date powermenu
+;systemRoot systemHome s
+
+;tray_output none
+;tray-position = right
+tray-detached = true
+tray-padding = 2
+;tray-transparent = true
+tray-background = ${colors.background}
+
+wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+[bar/bottom]
+bottom = true
+width = 100%
+height = 25
+offset-x = 0
+offset-y = 0
+
+;background = ${xrdb:color9}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 2
+overline-color = #f00
+underline-size = 2
+underline-color = ${colors.blue}
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+
+font-0 = Roboto Mono:pixelsize=10;1
+font-1 = Roboto Mono:fontformat=truetype:size=10:antialias=false;0
+font-2 = Wuncon Siji:pixelsize=10;1
+font-3 = FontAwesome:pixelsize=10;1
+font-4 = Siji:pixelsize=10;1
+font-5 = Material Icons:pixelsize=12;1
+font-6 = Roboto Mono NerdFont:pixelsize=12;1
+
+modules-left = mpd 
+modules-center = 
+modules-right = memory cpu filesystem temperature
+wm-restack = bspwm
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:120:...da%
+
+;label-background = ${colors.background-alt}
+label-padding = 2
+format-underline = #c0FFFFFF
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = "DISK %used%/%total% (%percentage_used%%)"
+;format-mounted-background = ${colors.yellow}
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+;format-mounted-underline = ${colors.yellowdark}
+format-mounted-padding = 2
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.yellow}
+label-focused-padding = 3
+
+label-occupied = %icon%
+label-occupied-padding = 3
+
+label-urgent = %icon%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 3
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 3
+
+ws-icon-0 = web;
+ws-icon-1 = terminal;
+ws-icon-2 = code;
+ws-icon-3 = music;
+ws-icon-4 = V;5
+ws-icon-5 = VI;6
+ws-icon-6 = VII;7
+ws-icon-7 = VIII;8
+ws-icon-8 = IX;9
+ws-icon-9 = X;10
+ws-icon-default = 
+
+
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> <label-time> 
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+icon-prev-padding = 1
+icon-stop-padding = 1
+icon-play-padding = 1
+icon-pause-padding = 1
+icon-next-padding = 1
+
+label-song-maxlen = 100
+label-song-ellipsis = true
+
+label-time = (%elapsed%/%total%)
+format-padding = 4
+
+bar-progress-width = 30
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+bar-progress-fill-foreground = #aaff77
+bar-progress-empty-foreground = #444444
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label> <ramp-coreload>
+format-prefix = "CPU "
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = ${colors.purple}
+;format-background = ${colors.purple}
+label = %percentage%% 
+format-padding = 2
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+
+
+[module/memory]
+type = internal/memory
+format = <label>
+format-prefix = "RAM "
+label = %gb_used%/%gb_total% (%percentage_used%%) 
+interval = 2
+
+bar-used-width = 20
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+
+format-padding = 2
+
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = "%d-%m-%Y "
+
+time = %H:%M
+time-alt = %H:%M
+
+;format-underline = ${colors.bluedark}
+;format-background = ${colors.blue}
+
+label = %date%%time%
+format-padding = 2
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 2
+warn-temperature = 60
+
+format = <ramp><label>
+;format-underline = ${colors.greendark}
+;format-background = ${colors.green}
+format-warn = <ramp><label-warn>
+;format-warn-underline = ${self.format-underline}
+format-padding = 2
+
+label = " %temperature%"
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close = cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+format-padding = 2
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+; vim:ft=dosini
