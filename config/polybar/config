@@ -86,6 +86,49 @@ scroll-down = bspwm-deskprev
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
+[bar/main_external]
+monitor = HDMI-1
+bottom = false
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
+
+;background = ${xrdb:color9}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 2
+overline-color = #f00
+underline-size = 2
+underline-color = ${colors.blue}
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Roboto Mono:pixelsize=10;1
+font-1 = Roboto Mono:fontformat=truetype:size=10:antialias=false;0
+font-2 = Wuncon Siji:pixelsize=10;1
+font-3 = FontAwesome:pixelsize=10;1
+font-4 = Siji:pixelsize=10;1
+font-5 = Material Icons:pixelsize=12;1
+font-6 = Roboto Mono NerdFont:pixelsize=12;1
+
+modules-left = bspwm
+modules-center = xwindow
+
+tray-detached = true
+tray-padding = 2
+tray-background = ${colors.background}
+
+wm-restack = bspwm
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
 [bar/bottom]
 bottom = true
 width = 100%
@@ -145,6 +188,7 @@ format-mounted-padding = 2
 
 [module/bspwm]
 type = internal/bspwm
+pin-workspaces = true
 
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}
@@ -162,10 +206,10 @@ label-empty = %icon%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 3
 
-ws-icon-0 = web;
-ws-icon-1 = terminal;
-ws-icon-2 = code;
-ws-icon-3 = music;
+ws-icon-0 = I;1
+ws-icon-1 = II;2
+ws-icon-2 = III;3
+ws-icon-3 = IV;4
 ws-icon-4 = V;5
 ws-icon-5 = VI;6
 ws-icon-6 = VII;7

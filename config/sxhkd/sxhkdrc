@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	termite
+	alacritty
 
 # program launcher
 super + space
@@ -63,7 +63,7 @@ super + {_,shift + }{h,j,k,l}
 super + {_,shift +}{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
-ctrl + {Left,Right}
+super + ctrl + {Left,Right}
 	bspc desktop -f {prev,next}
 
 
