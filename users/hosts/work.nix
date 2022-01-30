@@ -3,6 +3,10 @@ let
   apply-user = pkgs.writeScriptBin "apply-user"
     "${builtins.readFile ../modules/system-management/apply-user-work.sh}";
 in {
+  xdg.configFile."nix/nix.conf".text = ''
+    experimental-features = nix-command flakes ca-references
+  '';
+
   programs.git.userEmail = "johannes.mueller@freiheit.com";
   home.packages = [ apply-user ];
 

@@ -6,7 +6,8 @@ let
 
     src = inputs.evans.outPath;
 
-    vendorSha256 = "sha256-bFTmr/xQ12cboH1MGvHDUpLM0dMkxMeLgwG0VbhMEnc="; # lib.fakeSha256
+    vendorSha256 =
+      "sha256-bFTmr/xQ12cboH1MGvHDUpLM0dMkxMeLgwG0VbhMEnc="; # lib.fakeSha256
 
     subPackages = [ "." ];
   };
