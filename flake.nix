@@ -11,6 +11,10 @@
       url = "github:BlingCorp/bling";
       flake = false;
     };
+    evans = {
+      url = "github:ktr0731/evans/v0.10.2";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

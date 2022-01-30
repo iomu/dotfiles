@@ -16,6 +16,23 @@
         "type": "github"
       }
     },
+    "evans": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1642836688,
+        "narHash": "sha256-F9URMwQaSAQZaiZ95rDZqe8+YcJ9aMInSTIgQ7JLyOw=",
+        "owner": "ktr0731",
+        "repo": "evans",
+        "rev": "3ab359e479fbaad857bcf92c599af56c8eb6b211",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ktr0731",
+        "ref": "v0.10.2",
+        "repo": "evans",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -56,6 +73,7 @@
     "root": {
       "inputs": {
         "bling": "bling",
+        "evans": "evans",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

@@ -1,17 +1,12 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   evans = pkgs.buildGoModule rec {
     pname = "evans";
-    version = "0.9.3";
+    version = "0.10.2";
 
-    src = pkgs.fetchFromGitHub {
-      owner = "ktr0731";
-      repo = "evans";
-      rev = "v${version}";
-      sha256 = "1jy73737ah0qqy16ampx51cchrjrhkr945lpfnnshnalk86xdhdb";
-    };
+    src = inputs.evans.outPath;
 
-    vendorSha256 = "1y98alg153p2djn7zxvpyiprdzpra2nxyga8qjark38hpfnnbm4y";
+    vendorSha256 = "sha256-bFTmr/xQ12cboH1MGvHDUpLM0dMkxMeLgwG0VbhMEnc="; # lib.fakeSha256
 
     subPackages = [ "." ];
   };
