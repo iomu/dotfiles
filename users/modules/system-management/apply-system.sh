@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo nixos-rebuild switch --flake '$HOME/dotfiles#nixos'
+sudo nixos-rebuild switch --flake "$HOME/dotfiles#nixos"
