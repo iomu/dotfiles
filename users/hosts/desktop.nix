@@ -4,5 +4,11 @@ let
     "${builtins.readFile ../modules/system-management/apply-user-desktop.sh}";
 in {
   programs.git.userEmail = "muellerjohannes23@gmail.com";
-  home.packages = [ apply-user ];
+  home.packages = with pkgs; [
+    apply-user
+    google-chrome
+    spotify
+    jetbrains.idea-ultimate
+    androidStudioPackages.canary
+  ];
 }

@@ -57,19 +57,7 @@ in {
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    htop
-    google-chrome
-    sudo
-    spotify
-    termite
-    jetbrains.idea-ultimate
-    jdk11
-    unzip
-    openssl
-    adoptopenjdk-bin
-    androidStudioPackages.canary
-  ];
+  environment.systemPackages = with pkgs; [ sudo unzip openssl ];
 
   virtualisation.docker.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
@@ -146,24 +134,6 @@ in {
     shell = "/home/jo/.nix-profile/bin/zsh";
     extraGroups =
       [ "wheel" "docker" "audio" "libvirtd" ]; # Enable ‘sudo’ for the user.
-  };
-
-  programs.zsh = {
-    enable = false;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    shellInit = ''
-      eval "$(/run/current-system/sw/bin/starship init zsh)"
-      if [ -n "''${commands[fzf-share]}" ]; then
-        source "$(fzf-share)/key-bindings.zsh"
-        source "$(fzf-share)/completion.zsh"
-      fi
-    '';
-    promptInit = "";
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "sudo" "docker" "kubectl" ];
-    };
   };
 
   nixpkgs.config = { allowUnfree = true; };
