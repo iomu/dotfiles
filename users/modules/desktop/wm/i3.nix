@@ -6,7 +6,6 @@
     package = pkgs.i3-gaps;
     config = {
       modifier = "Mod4";
-      terminal = "alacritty";
       menu = ''"rofi -modi 'window,drun,run' -show drun -display-drun 'open'"'';
       keybindings =
         let modifier = config.xsession.windowManager.i3.config.modifier;

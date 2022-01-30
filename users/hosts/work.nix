@@ -12,6 +12,7 @@ in {
 
   xsession.initExtra = ''
     export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+    export TERMINAL=nixGLIntel alacritty
   '';
 
   services.gpg-agent = {
@@ -22,6 +23,8 @@ in {
   programs.autorandr.enable = true;
 
   services.gnome-keyring.enable = true;
+
+  xsession.windowManager.i3.config.terminal = "nixGLIntel alacritty";
 
   programs.autorandr = {
     enable = true;

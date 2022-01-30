@@ -8,7 +8,6 @@
     ./modules/system-management/index.nix
     ./modules/desktop/default.nix
     ./modules/desktop/wm/awesome.nix
-    ./modules/desktop/wm/i3.nix
     ./modules/terminal/default.nix
     ./modules/terminal/alacritty.nix
     ./modules/terminal/tmux.nix
