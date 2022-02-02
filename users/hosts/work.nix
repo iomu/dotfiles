@@ -3,6 +3,8 @@ let
   apply-user = pkgs.writeScriptBin "apply-user"
     "${builtins.readFile ../modules/system-management/apply-user-work.sh}";
 in {
+  imports = [ ../modules/desktop/wm/i3.nix ];
+
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes ca-references
   '';
@@ -10,17 +12,29 @@ in {
   programs.git.userEmail = "johannes.mueller@freiheit.com";
   home.packages = [ apply-user ];
 
-  xsession.initExtra = ''
-    export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-    export TERMINAL=nixGLIntel alacritty
-  '';
+  #  xsession.initExtra = ''
+  #    export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+  #    export TERMINAL=
+  #  '';
+
+  home.sessionVariables = { TERMINAL = "nixGLIntel alacritty"; };
+
+  home.sessionPath = [
+    "/usr/local/sbin"
+    "/usr/local/bin"
+    "/usr/sbin"
+    "/usr/bin"
+    "/sbin"
+    "/bin"
+    "/usr/games"
+    "/usr/local/games"
+    "/snap/bin"
+  ];
 
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
   };
-
-  programs.autorandr.enable = true;
 
   services.gnome-keyring.enable = true;
 

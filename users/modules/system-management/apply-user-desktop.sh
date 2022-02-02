@@ -1,4 +1,2 @@
 #!/bin/sh
-pushd $HOME/dotfiles
-nix build "$HOME/dotfiles#homeConfigurations.nixos.activationPackage" && ./result/activate
-popd
+home-manager switch --flake "$HOME/dotfiles#nixos"

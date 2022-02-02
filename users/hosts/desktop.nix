@@ -3,6 +3,7 @@ let
   apply-user = pkgs.writeScriptBin "apply-user"
     "${builtins.readFile ../modules/system-management/apply-user-desktop.sh}";
 in {
+  imports = [ ../modules/desktop/wm/awesome.nix ];
   programs.git.userEmail = "muellerjohannes23@gmail.com";
 
   xsession.windowManager.i3.config.terminal = "alacritty";

@@ -2,7 +2,9 @@
   description = "Dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
+    nixpkgs-system.url =
+      "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -17,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-system, home-manager, ... }@inputs:
     let
       extraSpecialArgs = {
         inherit inputs self;
@@ -78,7 +80,7 @@
           };
         };
       };
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs-system.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./system/configuration.nix ];
       };
