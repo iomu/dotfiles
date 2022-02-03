@@ -4,6 +4,7 @@
     ./modules/dev.nix
     ./modules/fonts.nix
     ./modules/git.nix
+    ./modules/keyboard.nix
     ./modules/nix.nix
     ./modules/system-management/index.nix
     ./modules/desktop/default.nix

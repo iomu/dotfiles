@@ -25,6 +25,8 @@ in {
     kubectl
     kustomize
     k9s
+    skaffold
+
     # Azure
     azure-cli
     azure-storage-azcopy
@@ -46,6 +48,7 @@ in {
     gcc
 
     wrangler
-    google-cloud-sdk
+
+    yarn
   ];
 }

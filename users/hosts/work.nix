@@ -12,11 +12,6 @@ in {
   programs.git.userEmail = "johannes.mueller@freiheit.com";
   home.packages = [ apply-user ];
 
-  #  xsession.initExtra = ''
-  #    export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-  #    export TERMINAL=
-  #  '';
-
   home.sessionVariables = { TERMINAL = "nixGLIntel alacritty"; };
 
   home.sessionPath = [
@@ -29,6 +24,7 @@ in {
     "/usr/games"
     "/usr/local/games"
     "/snap/bin"
+    "$HOME/Downloads/google-cloud-sdk/bin"
   ];
 
   services.gpg-agent = {
@@ -55,7 +51,7 @@ in {
             enable = true;
             #            crtc = 0;
             mode = "1920x1080";
-            position = "1920x0";
+            position = "0x0";
             rate = "60.03";
           };
 
@@ -64,7 +60,7 @@ in {
             primary = true;
 
             rate = "60.00";
-            position = "0x0";
+            position = "1920x0";
             mode = "1920x1080";
           };
 
