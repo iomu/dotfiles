@@ -18,8 +18,14 @@ in {
   programs.zsh.shellAliases = {
     klayout = "${pkgs.xorg.xmodmap}/bin/xmodmap ${myCustomLayout}";
   };
-  programs.zsh.initExtra = ''
-    # umlauts in keyboard layout
-    ${pkgs.xorg.xmodmap}/bin/xmodmap ${myCustomLayout}
-  '';
+#  programs.zsh.initExtra = ''
+#    # umlauts in keyboard layout
+#    ${pkgs.xorg.xmodmap}/bin/xmodmap ${myCustomLayout}
+#  '';
+  home.packages = [ pkgs.xplugd ];
+
+  home.keyboard = {
+    layout = "us";
+    variant = "altgr-intl";
+  };
 }
