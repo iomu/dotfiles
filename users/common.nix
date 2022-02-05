@@ -24,6 +24,8 @@
       ''export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"'';
   };
 
+  home.packages = [ pkgs.openssh ];
+
   home.sessionPath = let
     gfuzzy = pkgs.fetchFromGitHub {
       owner = "bigH";

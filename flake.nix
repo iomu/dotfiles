@@ -7,6 +7,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixgl.url = "github:guibou/nixGL";
 
     # awesomewm modules
     bling = {
@@ -19,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-system, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-system, home-manager, nixgl, ... }@inputs:
     let
       extraSpecialArgs = {
         inherit inputs self;
@@ -77,6 +78,21 @@
             home.stateVersion = "21.05";
 
             imports = [ ./users/common.nix ./users/hosts/work.nix ];
+          };
+        };
+        arch = home-manager.lib.homeManagerConfiguration {
+          system = "x86_64-linux";
+
+          username = "jo";
+          homeDirectory = "/home/jo";
+          stateVersion = "21.05";
+          inherit extraSpecialArgs;
+          configuration = { config, lib, pkgs, ... }: {
+            nixpkgs.config.allowUnfree = true;
+            programs.home-manager.enable = true;
+
+            home.stateVersion = "21.05";
+            imports = [ ./users/common.nix ./users/hosts/arch.nix ];
           };
         };
       };
