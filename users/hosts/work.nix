@@ -3,11 +3,12 @@ let
   apply-user = pkgs.writeScriptBin "apply-user"
     "${builtins.readFile ../modules/system-management/apply-user-work.sh}";
   pkgs = import inputs.nixpkgs {
-      system = "x86_64-linux";
-      overlays = [ inputs.nixgl.overlay ];
-      config = { allowUnfree = true; };
-    };
-  terminal = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty";
+    system = "x86_64-linux";
+    overlays = [ inputs.nixgl.overlay ];
+    config = { allowUnfree = true; };
+  };
+  terminal =
+    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty";
 in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 
@@ -41,6 +42,8 @@ in {
   services.gnome-keyring.enable = true;
 
   xsession.windowManager.i3.config.terminal = terminal;
+
+  home.packages = with pkgs; [ pavucontrol ];
 
   programs.autorandr = {
     enable = true;
