@@ -7,7 +7,7 @@ let
     overlays = [ inputs.nixgl.overlay ];
     config = { allowUnfree = true; };
   };
-  terminal = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL alacritty";
+  terminal = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.alacritty}/bin/alacritty";
 in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 

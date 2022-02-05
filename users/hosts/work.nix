@@ -2,6 +2,12 @@
 let
   apply-user = pkgs.writeScriptBin "apply-user"
     "${builtins.readFile ../modules/system-management/apply-user-work.sh}";
+  pkgs = import inputs.nixpkgs {
+      system = "x86_64-linux";
+      overlays = [ inputs.nixgl.overlay ];
+      config = { allowUnfree = true; };
+    };
+  terminal = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty";
 in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 
@@ -10,9 +16,9 @@ in {
   '';
 
   programs.git.userEmail = "johannes.mueller@freiheit.com";
-  home.packages = [ apply-user ];
+  home.packages = [ apply-user pkgs.nixgl.nixGLIntel ];
 
-  home.sessionVariables = { TERMINAL = "nixGLIntel alacritty"; };
+  home.sessionVariables = { TERMINAL = terminal; };
 
   home.sessionPath = [
     "/usr/local/sbin"
@@ -34,7 +40,7 @@ in {
 
   services.gnome-keyring.enable = true;
 
-  xsession.windowManager.i3.config.terminal = "nixGLIntel alacritty";
+  xsession.windowManager.i3.config.terminal = terminal;
 
   programs.autorandr = {
     enable = true;
