@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   apply-user = pkgs.writeScriptBin "apply-user"
     "${builtins.readFile ../modules/system-management/apply-user-work.sh}";
@@ -8,16 +8,22 @@ let
     config = { allowUnfree = true; };
   };
   terminal =
-    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGLIntel ${pkgs.alacritty}/bin/alacritty";
+    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.alacritty}/bin/alacritty";
 in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 
   xdg.configFile."nix/nix.conf".text = ''
-    experimental-features = nix-command flakes ca-references
+    experimental-features = nix-command flakes
   '';
 
   programs.git.userEmail = "johannes.mueller@freiheit.com";
-  home.packages = [ apply-user pkgs.nixgl.nixGLIntel ];
+  home.packages = [
+    apply-user
+    pkgs.pavucontrol
+    pkgs.nixgl.nixGLIntel
+    pkgs.nixgl.auto.nixGLNvidia
+    pkgs.nixgl.auto.nixGLDefault
+  ];
 
   home.sessionVariables = { TERMINAL = terminal; };
 
@@ -42,8 +48,6 @@ in {
   services.gnome-keyring.enable = true;
 
   xsession.windowManager.i3.config.terminal = terminal;
-
-  home.packages = with pkgs; [ pavucontrol ];
 
   programs.autorandr = {
     enable = true;
