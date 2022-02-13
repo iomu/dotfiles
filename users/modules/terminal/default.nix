@@ -9,6 +9,24 @@
     jq
     htop
     glances
+    du-dust
+    bandwhich
+    # count code
+    tokei
+    # like sed
+    sd
+    # colors
+    pastel
+    # http requests
+    xh
+    # ps
+    procs
+    # kubernetes
+    click
+    # json
+    fx
+    # hex viewer
+    hexyl
   ];
 
   programs.direnv = {
@@ -25,5 +43,15 @@
     enableAliases = true;
   };
 
+  # z
   programs.zoxide = { enable = true; };
+
+  # like htop
+  programs.bottom = { enable = true; };
+
+  # directory navigation: br
+  programs.broot = { enable = true; };
+
+
+  programs.navi = { enable = true; };
 }

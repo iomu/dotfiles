@@ -27,6 +27,7 @@
     shellAliases = {
       scrcpy = "ADB=$HOME/Android/Sdk/platform-tools/adb scrcpy";
       gs = "git status";
+      cd = "z";
     };
 
     sessionVariables = { EDITOR = "vim"; };
