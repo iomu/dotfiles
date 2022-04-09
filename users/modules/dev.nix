@@ -37,8 +37,6 @@ in {
     python39Packages.pip
     # go
     go
-    # rust
-    rustup
 
     lcov
     gettext
