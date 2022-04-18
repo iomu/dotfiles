@@ -77,7 +77,7 @@
             # changes in each release.
             home.stateVersion = "21.05";
 
-            imports = [ ./users/common.nix ./users/hosts/work.nix ];
+            imports = [ ./users/common.nix ./users/linux.nix ./users/hosts/work.nix ];
           };
         };
         arch = home-manager.lib.homeManagerConfiguration {
@@ -92,7 +92,22 @@
             programs.home-manager.enable = true;
 
             home.stateVersion = "21.05";
-            imports = [ ./users/common.nix ./users/hosts/arch.nix ];
+            imports = [ ./users/common.nix ./users/linux.nix ./users/hosts/arch.nix ];
+          };
+        };
+        mac = home-manager.lib.homeManagerConfiguration {
+          system = "x86_64-darwin";
+
+          username = "jo";
+          homeDirectory = "/Users/jo";
+          stateVersion = "21.05";
+          inherit extraSpecialArgs;
+          configuration = { config, lib, pkgs, ... }: {
+            nixpkgs.config.allowUnfree = true;
+            programs.home-manager.enable = true;
+
+            home.stateVersion = "21.05";
+            imports = [ ./users/common.nix ./users/hosts/mac.nix ];
           };
         };
       };

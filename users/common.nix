@@ -4,10 +4,8 @@
     ./modules/dev.nix
     ./modules/fonts.nix
     ./modules/git.nix
-    ./modules/keyboard.nix
     ./modules/nix.nix
     ./modules/system-management/index.nix
-    ./modules/desktop/default.nix
     ./modules/terminal/default.nix
     ./modules/terminal/alacritty.nix
     ./modules/terminal/tmux.nix
@@ -15,9 +13,7 @@
     ./modules/terminal/zsh.nix
   ];
 
-  targets.genericLinux.enable = true;
-  xdg.enable = true;
-  xdg.mime.enable = true;
+
   programs.bash = {
     enable = true;
     profileExtra =

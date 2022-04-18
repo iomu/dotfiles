@@ -30,8 +30,6 @@
       cd = "z";
     };
 
-    sessionVariables = { EDITOR = "vim"; };
-
     plugins = [{
       name = "zsh-nix-shell";
       file = "nix-shell.plugin.zsh";
