@@ -14,7 +14,7 @@ in {
   '';
 
   programs.git.userEmail = "johannes.mueller@freiheit.com";
-  home.packages = [ apply-user ];
+  home.packages = [ apply-user pkgs.cocoapods ];
 
   home.sessionVariables = { TERMINAL = terminal; };
   }
