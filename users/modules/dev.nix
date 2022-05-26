@@ -43,8 +43,6 @@ in {
     # java
     jdk11
 
-    gcc
-
     wrangler
 
     yarn
