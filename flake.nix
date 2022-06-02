@@ -18,6 +18,10 @@
       url = "github:ktr0731/evans/v0.10.2";
       flake = false;
     };
+    kafkactl = {
+      url = "github:deviceinsight/kafkactl/v2.3.0";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-system, home-manager, nixgl, ... }@inputs:
@@ -77,7 +81,8 @@
             # changes in each release.
             home.stateVersion = "21.05";
 
-            imports = [ ./users/common.nix ./users/linux.nix ./users/hosts/work.nix ];
+            imports =
+              [ ./users/common.nix ./users/linux.nix ./users/hosts/work.nix ];
           };
         };
         arch = home-manager.lib.homeManagerConfiguration {
@@ -92,7 +97,8 @@
             programs.home-manager.enable = true;
 
             home.stateVersion = "21.05";
-            imports = [ ./users/common.nix ./users/linux.nix ./users/hosts/arch.nix ];
+            imports =
+              [ ./users/common.nix ./users/linux.nix ./users/hosts/arch.nix ];
           };
         };
         mac = home-manager.lib.homeManagerConfiguration {

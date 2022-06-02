@@ -9,6 +9,17 @@ let
   };
   terminal =
     "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.alacritty}/bin/alacritty";
+
+  kafkactl = pkgs.buildGoModule rec {
+    pname = "kafkactl";
+    version = "2.3.0";
+
+    src = inputs.kafkactl.outPath;
+
+    vendorSha256 = "sha256-w6sOjfHwBpVgVnqbEzb4d5oMMBwt0j7HGJ//L/44s2A="; # lib.fakeSha256
+
+    subPackages = [ "." ];
+  };
 in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 
@@ -23,6 +34,7 @@ in {
     pkgs.nixgl.nixGLIntel
     pkgs.nixgl.auto.nixGLNvidia
     pkgs.nixgl.auto.nixGLDefault
+    kafkactl
   ];
 
   home.sessionVariables = { TERMINAL = terminal; };

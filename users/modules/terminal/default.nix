@@ -52,6 +52,5 @@
   # directory navigation: br
   programs.broot = { enable = true; };
 
-
   programs.navi = { enable = true; };
 }

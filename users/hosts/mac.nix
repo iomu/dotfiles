@@ -6,8 +6,7 @@ let
     system = "x86_64-darwin";
     config = { allowUnfree = true; };
   };
-  terminal =
-    "${pkgs.alacritty}/bin/alacritty";
+  terminal = "${pkgs.alacritty}/bin/alacritty";
 in {
   xdg.configFile."nix/nix.conf".text = ''
     experimental-features = nix-command flakes
@@ -17,4 +16,4 @@ in {
   home.packages = [ apply-user pkgs.cocoapods ];
 
   home.sessionVariables = { TERMINAL = terminal; };
-  }
+}

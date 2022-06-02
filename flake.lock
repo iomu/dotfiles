@@ -54,6 +54,23 @@
         "type": "github"
       }
     },
+    "kafkactl": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653981941,
+        "narHash": "sha256-506kNAK8O+50NigmNzMH+PPyT8AkHEC/Ugy25UwTDyE=",
+        "owner": "deviceinsight",
+        "repo": "kafkactl",
+        "rev": "7dc28208eb5adcc998c3da96e8015aa9dbba325d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "deviceinsight",
+        "ref": "v2.3.0",
+        "repo": "kafkactl",
+        "type": "github"
+      }
+    },
     "nixgl": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -123,6 +140,7 @@
         "bling": "bling",
         "evans": "evans",
         "home-manager": "home-manager",
+        "kafkactl": "kafkactl",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-system": "nixpkgs-system"

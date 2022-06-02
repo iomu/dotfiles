@@ -13,7 +13,6 @@
     ./modules/terminal/zsh.nix
   ];
 
-
   programs.bash = {
     enable = true;
     profileExtra =
