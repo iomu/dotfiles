@@ -46,5 +46,7 @@ in {
     wrangler
 
     yarn
+
+    vegeta
   ];
 }
