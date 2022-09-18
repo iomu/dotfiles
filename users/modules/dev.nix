@@ -31,7 +31,7 @@ in {
     azure-cli
     azure-storage-azcopy
     # infra
-    terraform_0_14
+    terraform
     # python
     python39
     python39Packages.pip

@@ -30,91 +30,56 @@
         inherit inputs self;
         bling = inputs.bling;
       };
+
+      home-common = { lib, ... }: {
+        nixpkgs.config.allowUnfreePredicate = pkg:
+          builtins.elem (lib.getName pkg) [ ];
+
+        programs.home-manager.enable = true;
+        home.stateVersion = "21.05";
+        imports = [ ./users/common.nix ];
+      };
+
+      home-nixos = {
+        home.username = "jo";
+        home.homeDirectory = "/home/jo";
+        imports = [ ./users/hosts/desktop.nix ];
+      };
+      home-work = {
+        home.username = "jo";
+        home.homeDirectory = "/home/jo";
+        imports = [ ./users/linux.nix ./users/hosts/work.nix ];
+      };
+
+      home-arch = {
+        home.username = "jo";
+        home.homeDirectory = "/home/jo";
+        imports = [ ./users/linux.nix ./users/hosts/arch.nix ];
+      };
+      home-mac = {
+        home.username = "jo";
+        home.homeDirectory = "/Users/jo";
+        imports = [ ./users/hosts/mac.nix ];
+      };
     in {
       homeConfigurations = {
         nixos = home-manager.lib.homeManagerConfiguration {
-          system = "x86_64-linux";
-
-          username = "jo";
-          homeDirectory = "/home/jo";
-
-          stateVersion = "21.05";
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [ home-common home-nixos ];
           inherit extraSpecialArgs;
-          configuration = { config, lib, pkgs, ... }: {
-            nixpkgs.config = { allowUnfree = true; };
-            # Let Home Manager install and manage itself.
-            programs.home-manager.enable = true;
-
-            # This value determines the Home Manager release that your
-            # configuration is compatible with. This helps avoid breakage
-            # when a new Home Manager release introduces backwards
-            # incompatible changes.
-            #
-            # You can update Home Manager without changing this value. See
-            # the Home Manager release notes for a list of state version
-            # changes in each release.
-            home.stateVersion = "21.05";
-
-            imports = [ ./users/common.nix ./users/hosts/desktop.nix ];
-          };
         };
         work = home-manager.lib.homeManagerConfiguration {
-          system = "x86_64-linux";
-
-          username = "jo";
-          homeDirectory = "/home/jo";
-
-          stateVersion = "21.05";
-          inherit extraSpecialArgs;
-          configuration = { config, lib, pkgs, ... }: {
-            nixpkgs.config = { allowUnfree = true; };
-            # Let Home Manager install and manage itself.
-            programs.home-manager.enable = true;
-
-            # This value determines the Home Manager release that your
-            # configuration is compatible with. This helps avoid breakage
-            # when a new Home Manager release introduces backwards
-            # incompatible changes.
-            #
-            # You can update Home Manager without changing this value. See
-            # the Home Manager release notes for a list of state version
-            # changes in each release.
-            home.stateVersion = "21.05";
-
-            imports =
-              [ ./users/common.nix ./users/linux.nix ./users/hosts/work.nix ];
-          };
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [ home-common home-work ];
         };
         arch = home-manager.lib.homeManagerConfiguration {
-          system = "x86_64-linux";
-
-          username = "jo";
-          homeDirectory = "/home/jo";
-          stateVersion = "21.05";
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [ home-common home-arch ];
           inherit extraSpecialArgs;
-          configuration = { config, lib, pkgs, ... }: {
-            nixpkgs.config.allowUnfree = true;
-            programs.home-manager.enable = true;
-
-            home.stateVersion = "21.05";
-            imports =
-              [ ./users/common.nix ./users/linux.nix ./users/hosts/arch.nix ];
-          };
         };
         mac = home-manager.lib.homeManagerConfiguration {
-          system = "x86_64-darwin";
-
-          username = "jo";
-          homeDirectory = "/Users/jo";
-          stateVersion = "21.05";
-          inherit extraSpecialArgs;
-          configuration = { config, lib, pkgs, ... }: {
-            nixpkgs.config.allowUnfree = true;
-            programs.home-manager.enable = true;
-
-            home.stateVersion = "21.05";
-            imports = [ ./users/common.nix ./users/hosts/mac.nix ];
-          };
+          pkgs = nixpkgs.legacyPackages."x86_64-darwin";
+          modules = [ home-common home-work ];
         };
       };
       nixosConfigurations.nixos = nixpkgs-system.lib.nixosSystem {
