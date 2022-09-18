@@ -55,7 +55,7 @@ in {
             crtc = 1;
             mode = "1920x1080";
             position = "0x0";
-            rate = "60.00";
+            rate = "240.00";
           };
 
           "HDMI-0" = {

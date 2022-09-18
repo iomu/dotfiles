@@ -16,7 +16,8 @@ let
 
     src = inputs.kafkactl.outPath;
 
-    vendorSha256 = "sha256-w6sOjfHwBpVgVnqbEzb4d5oMMBwt0j7HGJ//L/44s2A="; # lib.fakeSha256
+    vendorSha256 =
+      "sha256-w6sOjfHwBpVgVnqbEzb4d5oMMBwt0j7HGJ//L/44s2A="; # lib.fakeSha256
 
     subPackages = [ "." ];
   };

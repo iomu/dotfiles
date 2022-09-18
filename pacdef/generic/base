@@ -31,3 +31,6 @@ xorg-server
 xorg-xinit
 paru
 alsa-utils
+pulseaudio
+pulseaudio-alsa
+ncpamixer
