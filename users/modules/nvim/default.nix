@@ -10,7 +10,8 @@
       nvim-which-key
 
       # Progrmming: Treesitter
-        (nvim-treesitter.withPlugins (plugins: with plugins; [
+      (nvim-treesitter.withPlugins (plugins:
+        with plugins; [
           tree-sitter-bash
           tree-sitter-c
           tree-sitter-css
@@ -38,13 +39,14 @@
           tree-sitter-typescript
           tree-sitter-yaml
         ]))
-        nvim-treesitter-refactor
-        nvim-treesitter-textobjects
+      nvim-treesitter-refactor
+      nvim-treesitter-textobjects
     ];
 
-    extraPackages = with pkgs; [
+    extraPackages = with pkgs;
+      [
 
-    ];
+      ];
 
     #      luafile ${builtins.toString ./init.lua}
     extraConfig = ''

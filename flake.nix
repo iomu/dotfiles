@@ -18,17 +18,17 @@
       url = "github:ktr0731/evans/v0.10.2";
       flake = false;
     };
-<<<<<<< HEAD
+
     kafkactl = {
       url = "github:deviceinsight/kafkactl/v2.3.0";
       flake = false;
-=======
+    };
+
     # Applying the configuration happens from the .dotfiles directory so the
     # relative path is defined accordingly. This has potential of causing issues.
     vim-plugins = {
       url = "path:./users/modules/nvim/plugins";
       inputs.nixpkgs.follows = "nixpkgs";
->>>>>>> c7f851f (basic neovim config)
     };
   };
 
