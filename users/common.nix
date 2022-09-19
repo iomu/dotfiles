@@ -9,7 +9,7 @@
     ./modules/terminal/default.nix
     ./modules/terminal/alacritty.nix
     ./modules/terminal/tmux.nix
-    ./modules/terminal/vim.nix
+    ./modules/nvim/default.nix
     ./modules/terminal/zsh.nix
   ];
 
