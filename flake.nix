@@ -82,6 +82,7 @@
         work = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [ home-common home-work ];
+          inherit extraSpecialArgs;
         };
         arch = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
