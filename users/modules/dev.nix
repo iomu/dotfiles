@@ -26,15 +26,13 @@ in {
     kustomize
     k9s
     skaffold
+    istioctl
 
     # Azure
     azure-cli
     azure-storage-azcopy
     # infra
     terraform
-    # python
-    python39
-    python39Packages.pip
     # go
     go
 
