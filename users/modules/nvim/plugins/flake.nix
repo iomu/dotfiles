@@ -12,6 +12,10 @@
       url = "github:folke/which-key.nvim";
       flake = false;
     };
+    nvim-tokyonight-src = {
+      url = "github:folke/tokyonight.nvim";
+      flake = false;
+    };
   };
   outputs = inputs:
     let
@@ -27,6 +31,10 @@
         nvim-which-key = pkgs.vimUtils.buildVimPlugin {
           name = "which-key.nvim";
           src = inputs.nvim-which-key-src;
+        };
+        nvim-tokyonight = pkgs.vimUtils.buildVimPlugin {
+          name = "tokyonight.nvim";
+          src = inputs.nvim-tokyonight-src;
         };
       };
     in {

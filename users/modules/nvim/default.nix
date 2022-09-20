@@ -8,6 +8,7 @@
       nvim-surround
       nvim-tundra
       nvim-which-key
+      nvim-tokyonight
 
       # Progrmming: Treesitter
       (nvim-treesitter.withPlugins (plugins:
@@ -24,6 +25,7 @@
           tree-sitter-java
           tree-sitter-javascript
           tree-sitter-json
+          tree-sitter-kotlin
           tree-sitter-latex
           tree-sitter-lua
           tree-sitter-markdown
