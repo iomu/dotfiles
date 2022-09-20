@@ -49,6 +49,11 @@
         imports = [ ./users/common.nix ];
 
         nixpkgs.overlays = [ vim-plugins.overlay ];
+
+        _module.args = {
+            inherit inputs self;
+            bling = inputs.bling;
+        };
       };
 
       home-nixos = {
@@ -77,17 +82,14 @@
         nixos = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [ home-common home-nixos ];
-          inherit extraSpecialArgs;
         };
         work = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [ home-common home-work ];
-          inherit extraSpecialArgs;
         };
         arch = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [ home-common home-arch ];
-          inherit extraSpecialArgs;
         };
         mac = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-darwin";
