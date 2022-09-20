@@ -2,12 +2,12 @@
 let
   evans = pkgs.buildGoModule rec {
     pname = "evans";
-    version = "0.10.2";
+    version = "0.10.9";
 
     src = inputs.evans.outPath;
 
     vendorSha256 =
-      "sha256-bFTmr/xQ12cboH1MGvHDUpLM0dMkxMeLgwG0VbhMEnc="; # lib.fakeSha256
+      "sha256-HcD7MnUBPevGDckiWitIcp0z97FJmW3D0f9SySdouq8="; # lib.fakeSha256
 
     subPackages = [ "." ];
   };

@@ -15,7 +15,7 @@
       flake = false;
     };
     evans = {
-      url = "github:ktr0731/evans/v0.10.2";
+      url = "github:ktr0731/evans/v0.10.9";
       flake = false;
     };
 
