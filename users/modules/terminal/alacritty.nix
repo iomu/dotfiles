@@ -5,7 +5,7 @@
     settings = {
       font = {
         normal = {
-          family = "Fira Code";
+          family = "Fira Code Nerd Font";
           style = "Semibold";
         };
         size = 12;
