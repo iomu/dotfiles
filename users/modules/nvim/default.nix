@@ -4,11 +4,30 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
+      # appearance
+      nvim-web-devicons
+      indent-blankline-nvim
       lualine-nvim
+
+      # text objects
       nvim-surround
-      nvim-tundra
+
       nvim-which-key
+
+      # Themes
+      nvim-tundra
       nvim-tokyonight
+
+      # File Tree
+      nvim-tree-lua
+
+      # Fuzzy Finder
+      telescope-fzf-native-nvim
+      telescope-nvim
+      cheatsheet-nvim
+
+      # General Deps
+      plenary-nvim
 
       # Progrmming: Treesitter
       (nvim-treesitter.withPlugins (plugins:
@@ -43,11 +62,13 @@
         ]))
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
+
+
     ];
 
     extraPackages = with pkgs;
       [
-
+        ripgrep
       ];
 
     #      luafile ${builtins.toString ./init.lua}

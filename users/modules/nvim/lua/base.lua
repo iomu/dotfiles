@@ -1,3 +1,6 @@
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.o.mouse = "a"
 -- vim.o.encoding = "UTF-8" -- redundant
 vim.o.cursorline = true
