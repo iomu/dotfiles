@@ -14,7 +14,8 @@ let
     ! disable capslock
     ! remove Lock = Caps_Lock
   '';
-in {
+in
+{
   programs.zsh.shellAliases = {
     klayout = "${pkgs.xorg.xmodmap}/bin/xmodmap ${myCustomLayout}";
   };

@@ -51,8 +51,8 @@
         nixpkgs.overlays = [ vim-plugins.overlay ];
 
         _module.args = {
-            inherit inputs self;
-            bling = inputs.bling;
+          inherit inputs self;
+          bling = inputs.bling;
         };
       };
 

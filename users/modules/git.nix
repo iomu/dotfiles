@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
+let
+  globalGitIgnore = pkgs.writeText ".gitignore_global" ''
+    .local-history
+  '';
+in
+{
   home.packages = with pkgs; [ git-crypt gh ];
 
   programs.git = {
@@ -26,6 +32,11 @@
     };
     delta.enable = true;
 
-    extraConfig = { core = { editor = "vim"; }; };
+    extraConfig = {
+      core = {
+        editor = "vim";
+        excludesFile = "${globalGitIgnore}";
+      };
+    };
   };
 }

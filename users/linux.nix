@@ -7,4 +7,5 @@
 
   systemd.user.sessionVariables = { EDITOR = "vim"; };
   home.sessionVariables = { EDITOR = "vim"; };
+  home.packages = [ pkgs.xsel ];
 }

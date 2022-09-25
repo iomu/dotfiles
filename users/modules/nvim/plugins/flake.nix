@@ -16,6 +16,18 @@
       url = "github:folke/tokyonight.nvim";
       flake = false;
     };
+    nvim-lspsaga-src = {
+      url = "github:glepnir/lspsaga.nvim";
+      flake = false;
+    };
+    nvim-auto-save-src = {
+      url = "github:Pocco81/auto-save.nvim";
+      flake = false;
+    };
+    nvim-local-history-src = {
+      url = "github:dinhhuy258/vim-local-history";
+      flake = false;
+    };
   };
   outputs = inputs:
     let
@@ -36,8 +48,22 @@
           name = "tokyonight.nvim";
           src = inputs.nvim-tokyonight-src;
         };
+        nvim-lspsaga = pkgs.vimUtils.buildVimPluginFrom2Nix {
+          name = "nvim-lspsaga";
+          src = inputs.nvim-lspsaga-src;
+          buildInputs = [ pkgs.lua53Packages.busted ];
+        };
+        nvim-auto-save = pkgs.vimUtils.buildVimPluginFrom2Nix {
+          name = "nvim-auto-save";
+          src = inputs.nvim-auto-save-src;
+        };
+        nvim-local-history = pkgs.vimUtils.buildVimPluginFrom2Nix {
+          name = "nvim-local-history";
+          src = inputs.nvim-local-history-src;
+        };
       };
-    in {
+    in
+    {
       overlay = _final: prev: {
         vimPlugins = prev.vimPlugins // (missingVimPluginsInNixpkgs prev.pkgs);
       };
