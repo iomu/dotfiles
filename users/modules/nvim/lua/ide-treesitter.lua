@@ -30,5 +30,9 @@ require 'nvim-treesitter.configs'.setup {
             swap_next = { ["<leader>npn"] = "@parameter.inner" },
             swap_previous = { ["<leader>npp"] = "@parameter.inner" }
         }
+    },
+    context_commentstring = {
+        enable = true
     }
 }
+

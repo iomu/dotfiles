@@ -1,4 +1,41 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }:
+
+let
+  nvim-surround = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-surround";
+    src = inputs.nvim-surround-src;
+  };
+  nvim-tundra = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-tundra";
+    src = inputs.nvim-tundra-src;
+  };
+  nvim-which-key = pkgs.vimUtils.buildVimPlugin {
+    name = "which-key.nvim";
+    src = inputs.nvim-which-key-src;
+  };
+  nvim-tokyonight = pkgs.vimUtils.buildVimPlugin {
+    name = "tokyonight.nvim";
+    src = inputs.nvim-tokyonight-src;
+  };
+  nvim-lspsaga = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-lspsaga";
+    src = inputs.nvim-lspsaga-src;
+    buildInputs = [ pkgs.lua53Packages.busted ];
+  };
+  nvim-auto-save = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-auto-save";
+    src = inputs.nvim-auto-save-src;
+  };
+  nvim-local-history = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-local-history";
+    src = inputs.nvim-local-history-src;
+  };
+  nvim-ts-context-commentstring = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-ts-context-commentstring";
+    src = inputs.nvim-ts-context-commentstring-src;
+  };
+in
+{
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -50,6 +87,10 @@
       cmp-treesitter
       luasnip
 
+      # Git
+      gitsigns-nvim
+      diffview-nvim
+
       # Progrmming: Treesitter
       (nvim-treesitter.withPlugins (plugins:
         with plugins; [
@@ -87,6 +128,8 @@
       nvim-auto-save
       nvim-local-history
 
+      comment-nvim
+      nvim-ts-context-commentstring
     ];
 
     extraPackages = with pkgs; [

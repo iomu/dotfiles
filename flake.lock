@@ -156,15 +156,16 @@
     "nvim-auto-save-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1659824161,
-        "narHash": "sha256-keK+IAnHTTA5uFkMivViMMAkYaBvouYqcR+wNPgN3n0=",
-        "owner": "Pocco81",
+        "lastModified": 1662298823,
+        "narHash": "sha256-wpaHYciYnywUqwUoz0j6hFGOmq0/B8oaG1dtHtnV48c=",
+        "owner": "PolSust",
         "repo": "auto-save.nvim",
-        "rev": "2c7a2943340ee2a36c6a61db812418fca1f57866",
+        "rev": "16caafe7e252c491aaeaa5dd2cf614828bdcf759",
         "type": "github"
       },
       "original": {
-        "owner": "Pocco81",
+        "owner": "PolSust",
+        "ref": "allow_noautocmd_autosaving",
         "repo": "auto-save.nvim",
         "type": "github"
       }
@@ -204,11 +205,11 @@
     "nvim-surround-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1662331461,
-        "narHash": "sha256-W9XC98FFtwpyUJV2Z7QECDrdggshFId9IvICfXq7kxQ=",
+        "lastModified": 1664209373,
+        "narHash": "sha256-Ijv1htwD2+9cIrYE68exreKY/tagfR0RrSv10YF/Os8=",
         "owner": "kylechui",
         "repo": "nvim-surround",
-        "rev": "d91787d5a716623be7cec3be23c06c0856dc21b8",
+        "rev": "a0b35fd410e16f00543e81dbb6c52c723f49717e",
         "type": "github"
       },
       "original": {
@@ -230,6 +231,22 @@
       "original": {
         "owner": "folke",
         "repo": "tokyonight.nvim",
+        "type": "github"
+      }
+    },
+    "nvim-ts-context-commentstring-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1661490854,
+        "narHash": "sha256-z4uqeQQtagSHq1y8lHjZ4pnFMXmHpQXwoAlD6l1IcuA=",
+        "owner": "JoosepAlviste",
+        "repo": "nvim-ts-context-commentstring",
+        "rev": "4d3a68c41a53add8804f471fcc49bb398fe8de08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JoosepAlviste",
+        "repo": "nvim-ts-context-commentstring",
         "type": "github"
       }
     },
@@ -274,7 +291,14 @@
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-system": "nixpkgs-system",
-        "vim-plugins": "vim-plugins"
+        "nvim-auto-save-src": "nvim-auto-save-src",
+        "nvim-local-history-src": "nvim-local-history-src",
+        "nvim-lspsaga-src": "nvim-lspsaga-src",
+        "nvim-surround-src": "nvim-surround-src",
+        "nvim-tokyonight-src": "nvim-tokyonight-src",
+        "nvim-ts-context-commentstring-src": "nvim-ts-context-commentstring-src",
+        "nvim-tundra-src": "nvim-tundra-src",
+        "nvim-which-key-src": "nvim-which-key-src"
       }
     },
     "utils": {
@@ -290,26 +314,6 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
-      }
-    },
-    "vim-plugins": {
-      "inputs": {
-        "nvim-auto-save-src": "nvim-auto-save-src",
-        "nvim-local-history-src": "nvim-local-history-src",
-        "nvim-lspsaga-src": "nvim-lspsaga-src",
-        "nvim-surround-src": "nvim-surround-src",
-        "nvim-tokyonight-src": "nvim-tokyonight-src",
-        "nvim-tundra-src": "nvim-tundra-src",
-        "nvim-which-key-src": "nvim-which-key-src"
-      },
-      "locked": {
-        "narHash": "sha256-/EWjzr+gPkJrFXz3DnL0uC22qRvhlZuYrDagV0D56i0=",
-        "path": "./users/modules/nvim/plugins",
-        "type": "path"
-      },
-      "original": {
-        "path": "./users/modules/nvim/plugins",
-        "type": "path"
       }
     }
   },
