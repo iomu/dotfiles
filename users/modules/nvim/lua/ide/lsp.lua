@@ -49,10 +49,6 @@ require 'lspconfig'.rnix.setup {
 require 'lspconfig'.rust_analyzer.setup {
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
-        require 'lsp_signature'.on_attach({
-            bind = true,
-            handler_opts = { border = 'single' }
-        })
     end
 }
 require 'rust-tools'.setup()
@@ -178,18 +174,10 @@ null_ls.setup {
 }
 
 
--- AUTO FORMATTING
-
-for _, file_pattern in ipairs({ "*.rs", "*.lua", "*.md", "*.nix", "*.tf" }) do
-    vim.api.nvim_create_autocmd(
-        'BufWritePre',
-        {
-            pattern = file_pattern,
-            callback = function() vim.lsp.buf.formatting_sync(nil, 1000) end
-        }
-    )
-end
-
+require 'lsp_signature'.setup({
+    bind = true,
+    handler_opts = { border = 'single' }
+})
 
 
 -- prettier output for lsp diagnostics/renaming menu/references list/etc
