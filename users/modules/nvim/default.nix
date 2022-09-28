@@ -80,6 +80,8 @@ in
       # Completions
       nvim-cmp
       cmp-buffer
+      cmp-git
+      cmp-cmdline
       cmp-path
       cmp_luasnip
       cmp-nvim-lsp

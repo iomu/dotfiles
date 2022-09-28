@@ -86,6 +86,14 @@ for _, lsp in ipairs(lsp_servers) do
             Lua = {
                 cmd = { "lua-language-server" },
                 diagnostics = { globals = { 'vim' } },
+                workspace = {
+                    library = {
+                        vim.api.nvim_get_runtime_file("", true),
+                    },
+                    -- adjust these two values if your performance is not optimal
+                    maxPreload = 2000,
+                    preloadFileSize = 1000,
+                },
             },
             json = { schemas = json_schemas },
             yaml = {
@@ -111,7 +119,6 @@ require 'rust-tools'.setup({
 })
 
 -- null (Various tools as LSP) Setup
-
 
 local null_ls = require("null-ls")
 null_ls.setup {
