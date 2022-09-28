@@ -46,5 +46,7 @@ in {
     yarn
 
     vegeta
+
+    rustup
   ];
 }

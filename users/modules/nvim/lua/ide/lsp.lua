@@ -1,6 +1,9 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local on_attach = function(client, bufnr)
+    require("lsp_signature").on_attach({
+        handler_opts = { border = 'single' }
+    }, bufnr)
     if client.supports_method("textDocument/formatting") then
         vim.api.nvim_buf_create_user_command(bufnr, "LspFormatting", function()
             -- or vim.lsp.buf.formatting(bufnr) on 0.8
@@ -22,60 +25,6 @@ end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol
     .make_client_capabilities())
-
--- go
-require 'lspconfig'.gopls.setup {
-    on_attach = on_attach,
-}
-
--- JavaScript/TypeScript
-require 'lspconfig'.tsserver.setup {
-    on_attach = on_attach,
-}
-
--- lua
-require 'lspconfig'.sumneko_lua.setup {
-    on_attach = on_attach,
-    cmd = { "lua-language-server" },
-    settings = { Lua = { diagnostics = { globals = { 'vim' } } } }
-}
-
--- nix
-require 'lspconfig'.rnix.setup {
-    on_attach = on_attach,
-}
-
--- Rust
-require 'lspconfig'.rust_analyzer.setup {
-    on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-    end
-}
-require 'rust-tools'.setup()
-require('rust-tools').inlay_hints.enable()
-
--- terraform
-require 'lspconfig'.terraformls.setup {
-    on_attach = on_attach,
-}
-
-require 'lspconfig'.bashls.setup {
-    on_attach = on_attach,
-}
-require 'lspconfig'.cmake.setup {
-    on_attach = on_attach,
-}
-require 'lspconfig'.cssls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
-require 'lspconfig'.dockerls.setup {
-    on_attach = on_attach,
-}
-require 'lspconfig'.html.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
 
 local json_schemas = {
     {
@@ -125,26 +74,41 @@ local json_schemas = {
     }
 }
 
-require 'lspconfig'.jsonls.setup {
-    on_attach = on_attach,
-    settings = { json = { schemas = json_schemas } }
-}
-require 'lspconfig'.vimls.setup {
-    on_attach = on_attach,
-}
-require 'lspconfig'.yamlls.setup {
-    on_attach = on_attach,
-    settings = {
-        yaml = {
-            schemas = {
-                ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-                ["https://json.schemastore.org/drone.json"] = "/.drone.yml",
-                ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "/openapi.yml",
-                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/docker-compose.json"
+local lsp_servers = { 'gopls', 'tsserver', 'sumneko_lua', 'rnix', 'terraformls', 'bashls', 'cmake',
+    'cssls', 'dockerls', 'html', 'jsonls', 'vimls', 'yamlls' };
+
+local nvim_lsp = require("lspconfig")
+for _, lsp in ipairs(lsp_servers) do
+    nvim_lsp[lsp].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+            Lua = {
+                cmd = { "lua-language-server" },
+                diagnostics = { globals = { 'vim' } },
+            },
+            json = { schemas = json_schemas },
+            yaml = {
+                schemas = {
+                    ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                    ["https://json.schemastore.org/drone.json"] = "/.drone.yml",
+                    ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "/openapi.yml",
+                    ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/docker-compose.json"
+                }
             }
-        }
-    }
-}
+
+        },
+    })
+end
+require 'rust-tools'.setup({
+    server = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+    },
+    inlay_hints = {
+        auto = true,
+    },
+})
 
 -- null (Various tools as LSP) Setup
 
@@ -172,12 +136,6 @@ null_ls.setup {
     },
     on_attach = on_attach,
 }
-
-
-require 'lsp_signature'.setup({
-    bind = true,
-    handler_opts = { border = 'single' }
-})
 
 
 -- prettier output for lsp diagnostics/renaming menu/references list/etc
