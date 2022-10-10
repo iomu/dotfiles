@@ -1,5 +1,6 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+local wk = require('which-key')
 local on_attach = function(client, bufnr)
     require("lsp_signature").on_attach({
         handler_opts = { border = 'single' }
@@ -21,6 +22,30 @@ local on_attach = function(client, bufnr)
             --   end,
         })
     end
+
+
+    local function create_mapping(command, help)
+        return { command, help, noremap = true, silent = true, buffer = bufnr }
+
+    end
+
+    wk.register({
+        ["gd"] = create_mapping(vim.lsp.buf.definition, "[G]oto [d]efinition"),
+        ["gD"] = create_mapping(vim.lsp.buf.declaration, "[G]oto [D]eclaration"),
+        ["gi"] = create_mapping(vim.lsp.buf.implementation, "[G]oto [I]mplementation"),
+        ["gr"] = create_mapping(vim.lsp.buf.references, "[G]oto [R]eferences"),
+        ["gt"] = create_mapping(vim.lsp.buf.type_definition, "[G]oto [T]ype"),
+        ["K"] = create_mapping(vim.lsp.buf.hover, "Show hover help"),
+        ["<C-k>"] = create_mapping(vim.lsp.buf.signature_help, "Signature help"),
+        ["<leader>"] = {
+            ["rn"] = create_mapping(vim.lsp.buf.rename, "Rename"),
+            ["ca"] = create_mapping(vim.lsp.buf.code_action, "Code action"),
+            l = {
+                d = create_mapping(require("telescope.builtin").lsp_document_symbols, "Document Symbols"),
+                w = create_mapping(require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace symbols"),
+            },
+        },
+    })
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol
