@@ -234,6 +234,22 @@
         "type": "github"
       }
     },
+    "nvim-tree-climber-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659793069,
+        "narHash": "sha256-i+ZTcwkxmtKc3gr9EmPLM4mALK2pSgIUxOLII51UJj4=",
+        "owner": "drybalka",
+        "repo": "tree-climber.nvim",
+        "rev": "9c943b85f44d3064e8f42ee8b3aacad3959a5a75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "drybalka",
+        "repo": "tree-climber.nvim",
+        "type": "github"
+      }
+    },
     "nvim-ts-context-commentstring-src": {
       "flake": false,
       "locked": {
@@ -296,6 +312,7 @@
         "nvim-lspsaga-src": "nvim-lspsaga-src",
         "nvim-surround-src": "nvim-surround-src",
         "nvim-tokyonight-src": "nvim-tokyonight-src",
+        "nvim-tree-climber-src": "nvim-tree-climber-src",
         "nvim-ts-context-commentstring-src": "nvim-ts-context-commentstring-src",
         "nvim-tundra-src": "nvim-tundra-src",
         "nvim-which-key-src": "nvim-which-key-src"

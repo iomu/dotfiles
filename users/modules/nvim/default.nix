@@ -34,6 +34,10 @@ let
     name = "nvim-ts-context-commentstring";
     src = inputs.nvim-ts-context-commentstring-src;
   };
+  nvim-tree-climber = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-tree-climber";
+    src = inputs.nvim-tree-climber-src;
+  };
 in
 {
   programs.neovim = {
@@ -127,6 +131,7 @@ in
         ]))
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
+      nvim-tree-climber
 
       nvim-auto-save
       nvim-local-history

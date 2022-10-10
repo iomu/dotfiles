@@ -57,6 +57,10 @@
         url = "github:JoosepAlviste/nvim-ts-context-commentstring";
         flake = false;
       };
+      nvim-tree-climber-src = {
+        url = "github:drybalka/tree-climber.nvim";
+        flake = false;
+      };
     };
 
   outputs =
