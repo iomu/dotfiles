@@ -48,6 +48,7 @@ in
 
       # text objects
       nvim-surround
+      nvim-autopairs
 
       nvim-which-key
 
