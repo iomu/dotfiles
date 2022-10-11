@@ -93,6 +93,7 @@ in
       cmp-nvim-lua
       cmp-treesitter
       luasnip
+      lspkind-nvim
 
       # Git
       gitsigns-nvim
