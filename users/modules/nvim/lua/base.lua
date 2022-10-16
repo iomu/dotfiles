@@ -34,6 +34,9 @@ vim.o.hidden = true
 vim.o.backup = false
 vim.o.writebackup = false
 
+vim.opt.autowrite = true
+vim.opt.autowriteall = true
+
 -- " Better display for messages
 vim.o.cmdheight = 1
 

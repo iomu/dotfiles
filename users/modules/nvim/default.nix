@@ -57,6 +57,7 @@ in
       # text objects
       nvim-surround
       nvim-autopairs
+      targets-vim  
 
       nvim-which-key
 
@@ -144,6 +145,12 @@ in
 
       comment-nvim
       nvim-ts-context-commentstring
+
+      editorconfig-nvim
+
+      toggleterm-nvim
+
+      project-nvim
     ];
 
     extraPackages = with pkgs; [

@@ -20,6 +20,7 @@ require('telescope').setup {
     }
 }
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('projects')
 
 local wk = require("which-key")
 
@@ -37,6 +38,7 @@ wk.register({
             w = { require('telescope.builtin').grep_string, "[S]earch current [W]ord" },
             g = { require('telescope.builtin').live_grep, "[S]earch by [G]rep" },
             d = { require('telescope.builtin').diagnostics, "[S]earch [D]iagnostics" },
+            p = { require('telescope').extensions.projects.projects, "[S]earch [P]rojects" },
         },
         g = {
             name = "git",
