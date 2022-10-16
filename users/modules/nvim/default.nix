@@ -38,6 +38,10 @@ let
     name = "nvim-tree-climber";
     src = inputs.nvim-tree-climber-src;
   };
+  nvim-telescope-fzf-native = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-telescope-fzf-native";
+    src = inputs.nvim-telescope-fzf-native-src;
+  };
 in
 {
   programs.neovim = {
@@ -64,7 +68,7 @@ in
       nvim-tree-lua
 
       # Fuzzy Finder
-      telescope-fzf-native-nvim
+      nvim-telescope-fzf-native
       telescope-nvim
       cheatsheet-nvim
 

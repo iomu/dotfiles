@@ -61,6 +61,10 @@
         url = "github:drybalka/tree-climber.nvim";
         flake = false;
       };
+      nvim-telescope-fzf-native-src = {
+        url = "github:nvim-telescope/telescope-fzf-native.nvim";
+        flake = false;
+      };
     };
 
   outputs =

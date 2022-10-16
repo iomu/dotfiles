@@ -218,6 +218,22 @@
         "type": "github"
       }
     },
+    "nvim-telescope-fzf-native-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662442760,
+        "narHash": "sha256-hdQuS7AcvN5vIXBJnSwFsuyvX89+XDrSsea9TBWF21s=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-fzf-native.nvim",
+        "rev": "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-fzf-native.nvim",
+        "type": "github"
+      }
+    },
     "nvim-tokyonight-src": {
       "flake": false,
       "locked": {
@@ -311,6 +327,7 @@
         "nvim-local-history-src": "nvim-local-history-src",
         "nvim-lspsaga-src": "nvim-lspsaga-src",
         "nvim-surround-src": "nvim-surround-src",
+        "nvim-telescope-fzf-native-src": "nvim-telescope-fzf-native-src",
         "nvim-tokyonight-src": "nvim-tokyonight-src",
         "nvim-tree-climber-src": "nvim-tree-climber-src",
         "nvim-ts-context-commentstring-src": "nvim-ts-context-commentstring-src",
