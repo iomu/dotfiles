@@ -81,6 +81,7 @@ in
       trouble-nvim
       lsp_lines-nvim
       lsp_signature-nvim
+      nvim-jdtls
 
       # Completions
       nvim-cmp
@@ -166,6 +167,10 @@ in
 
       # JavaScript/Typescript
       nodePackages.typescript-language-server
+
+      # JavaScript
+      jdt-language-server # eclipse
+      java-language-server
 
       # lua
       luaformatter

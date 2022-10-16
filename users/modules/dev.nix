@@ -40,6 +40,7 @@ in {
     gettext
     # java
     jdk11
+    maven
 
     wrangler
 

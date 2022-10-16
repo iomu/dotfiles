@@ -128,11 +128,18 @@ for _, lsp in ipairs(lsp_servers) do
                     ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "/openapi.yml",
                     ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/docker-compose.json"
                 }
-            }
-
+            },
         },
     })
 end
+
+--[[ nvim_lsp['java_language_server'].setup({ ]]
+--[[     on_attach = on_attach, ]]
+--[[     capabilities = capabilities, ]]
+--[[     cmd = { '/nix/store/zcvhhb2cjs85vyfx6pp7131zi83fc2vz-java-language-server-0.2.38/share/java/java-language-server/lang_server_linux.sh' }, ]]
+--[[]]
+--[[ }) ]]
+
 require 'rust-tools'.setup({
     server = {
         on_attach = on_attach,
