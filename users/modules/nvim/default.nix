@@ -261,6 +261,8 @@ in
 
     #      luafile ${builtins.toString ./init.lua}
     extraConfig = ''
+      set guifont=Fira\ Code\ Nerd\ Font:h14
+      let g:neovide_cursor_animation_length=0
       lua require("init")
     '';
   };

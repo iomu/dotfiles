@@ -11,10 +11,12 @@ let
 
     subPackages = [ "." ];
   };
-in {
+in
+{
   home.packages = with pkgs; [
     docker
     docker-compose
+
     # proto + grpc
     evans
     protobuf
