@@ -139,6 +139,7 @@ in
       cmp-nvim-lua
       cmp-treesitter
       luasnip
+      friendly-snippets
       lspkind-nvim
 
       # Git
@@ -263,6 +264,7 @@ in
       lua require("init")
     '';
   };
+  home.packages = [ pkgs.neovide ];
   xdg.configFile = {
     "nvim/lua" = {
       source = ./lua;
