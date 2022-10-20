@@ -1,5 +1,5 @@
 require("auto-save").setup {
-    enabled = false, -- breaks auto-formatting currently
+    enabled = true, -- breaks auto-formatting currently
     noautocmd_save = true,
     execution_message = {
         message = function() -- message to print on save
