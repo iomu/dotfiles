@@ -16,6 +16,7 @@ in
   home.packages = with pkgs; [
     docker
     docker-compose
+    buildpack
 
     # proto + grpc
     evans
