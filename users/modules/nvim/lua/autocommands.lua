@@ -35,3 +35,11 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
         vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
     end,
 })
+
+-- set terraform file type 
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+    pattern = { "*.tf" },
+    callback = function ()
+        vim.opt_local.ft = "terraform"
+    end
+})

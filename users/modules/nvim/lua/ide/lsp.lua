@@ -7,8 +7,7 @@ local on_attach = function(client, bufnr)
     }, bufnr)
     if client.supports_method("textDocument/formatting") then
         vim.api.nvim_buf_create_user_command(bufnr, "LspFormatting", function()
-            -- or vim.lsp.buf.formatting(bufnr) on 0.8
-            vim.lsp.buf.formatting_sync()
+            vim.lsp.buf.format({ bufnr = bufnr })
         end, {})
 
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -35,7 +34,7 @@ local on_attach = function(client, bufnr)
         ["gi"] = create_mapping(vim.lsp.buf.implementation, "[G]oto [I]mplementation"),
         ["gr"] = create_mapping(vim.lsp.buf.references, "[G]oto [R]eferences"),
         ["gt"] = create_mapping(vim.lsp.buf.type_definition, "[G]oto [T]ype"),
-        ["gk"] = create_mapping(vim.lsp.buf.hover, "Show hover help"),
+        ["K"] = create_mapping(vim.lsp.buf.hover, "Show hover help"),
         ["gK"] = create_mapping(vim.lsp.buf.signature_help, "Signature help"),
         ["<leader>"] = {
             ["rn"] = create_mapping(vim.lsp.buf.rename, "Rename"),
@@ -48,8 +47,7 @@ local on_attach = function(client, bufnr)
     })
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol
-    .make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local json_schemas = {
     {

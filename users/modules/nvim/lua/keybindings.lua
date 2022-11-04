@@ -11,5 +11,9 @@ wk.register({
     ["<S-down>"] = { "<cmd>resize -2<cr>", "Decrease height" },
     ["<S-left>"] = { "<cmd>vertical resize -2<cr>", "Decrease width" },
     ["<S-right>"] = { "<cmd>vertical resize +2<cr>", "Increase width" },
-    ["<esc>"] = { "<cmd>noh<cr>", "Clear search highligh" }
+    ["<esc>"] = { "<cmd>noh<cr>", "Clear search highligh" },
+    ["ZZ"] = { "<cmd>w<cr>", "Save buffer" },
+    ["[d"] = { vim.diagnostic.goto_prev, "Goto previous error", noremap = true, silent = true },
+    ["]d"] = { vim.diagnostic.goto_next, "Goto next error", noremap = true, silent = true },
+    ["<leader>df"] = { vim.diagnostic.open_float, "Open diagnostic error in float", noremap = true, silent = true },
 })

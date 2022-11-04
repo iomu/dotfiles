@@ -71,3 +71,6 @@ vim.opt.foldenable = false
 
 -- font
 vim.opt.guifont = "Fira Code Nerd Font:h13"
+
+-- wrapping
+vim.opt.wrap = false

@@ -98,6 +98,8 @@ in
       nvim-surround
       nvim-autopairs
       targets-vim
+      leap-nvim
+      vim-repeat
 
       nvim-which-key
 
