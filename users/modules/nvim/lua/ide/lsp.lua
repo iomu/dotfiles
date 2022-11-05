@@ -220,9 +220,9 @@ vim.diagnostic.config({
 })
 
 local diagnostic_symbol_map = {
-    { name = "DiagnosticSignError", symbol = " " },
-    { name = "DiagnosticSignWarn", symbol = " " },
-    { name = "DiagnosticSignInfo", symbol = "" },
+    { name = "DiagnosticSignError", symbol = "│" },
+    { name = "DiagnosticSignWarn", symbol = "│" },
+    { name = "DiagnosticSignInfo", symbol = "│" },
     { name = "DiagnosticSignHint", symbol = " " },
 }
 
