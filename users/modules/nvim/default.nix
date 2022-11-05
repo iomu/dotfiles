@@ -143,6 +143,7 @@ in
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
       nvim-tree-climber
+      nvim-treesitter-context 
 
       nvim-auto-save
       nvim-local-history
