@@ -2,9 +2,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local wk = require('which-key')
 local on_attach = function(client, bufnr)
-    require("lsp_signature").on_attach({
-        handler_opts = { border = 'single' }
-    }, bufnr)
+    --[[ require("lsp_signature").on_attach({ ]]
+    --[[     handler_opts = { border = 'single' } ]]
+    --[[ }, bufnr) ]]
     if client.supports_method("textDocument/formatting") then
         vim.api.nvim_buf_create_user_command(bufnr, "LspFormatting", function()
             vim.lsp.buf.format({ bufnr = bufnr })
@@ -233,11 +233,11 @@ end
 
 -- Display LSP messages overlayd on the current buffer (instead of the status
 -- line) at the bottom right corner
-require "fidget".setup {
-    windowd = {
-        blend = 0, -- required for catppuccin
-    }
-}
+--[[ require "fidget".setup { ]]
+--[[     windowd = { ]]
+--[[         blend = 0, -- required for catppuccin ]]
+--[[     } ]]
+--[[ } ]]
 
 require("trouble").setup {
     position = "bottom", -- position of the list can be: bottom, top, left, right

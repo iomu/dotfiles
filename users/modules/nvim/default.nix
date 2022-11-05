@@ -42,6 +42,10 @@ let
     name = "nvim-telescope-fzf-native";
     src = inputs.nvim-telescope-fzf-native-src;
   };
+  nvim-noice = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-nice";
+    src = inputs.nvim-noice-src;
+  };
 in
 {
   programs.neovim = {
@@ -156,6 +160,10 @@ in
       toggleterm-nvim
 
       project-nvim
+
+      nvim-noice
+      nui-nvim
+      nvim-notify
     ];
 
     extraPackages = with pkgs; [

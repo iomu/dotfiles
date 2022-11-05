@@ -66,7 +66,8 @@ require("catppuccin").setup({
         leap = true,
         lsp_saga = true,
         lsp_trouble = true,
-        --[[ noice = true, ]]
+        noice = true,
+        notify = true,
         nvimtree = true,
         telescope = true,
         treesitter = true,

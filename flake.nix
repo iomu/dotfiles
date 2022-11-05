@@ -65,6 +65,10 @@
         url = "github:nvim-telescope/telescope-fzf-native.nvim";
         flake = false;
       };
+      nvim-noice-src = {
+        url = "github:folke/noice.nvim";
+        flake = false;
+      };
     };
 
   outputs =
