@@ -233,7 +233,11 @@ end
 
 -- Display LSP messages overlayd on the current buffer (instead of the status
 -- line) at the bottom right corner
-require "fidget".setup {}
+require "fidget".setup {
+    windowd = {
+        blend = 0, -- required for catppuccin
+    }
+}
 
 require("trouble").setup {
     position = "bottom", -- position of the list can be: bottom, top, left, right

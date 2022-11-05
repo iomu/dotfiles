@@ -1,6 +1,6 @@
 require("auto-save").setup {
     enabled = true, -- breaks auto-formatting currently
-    noautocmd_save = false,
+    noautocmd_save = true,
     execution_message = {
         message = function() -- message to print on save
             return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))

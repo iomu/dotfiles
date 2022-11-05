@@ -1,7 +1,7 @@
 require("base")
 require("autocommands")
 require("git")
-require("theme-tokyonight")
+require("theme.catppuccin")
 require("keybindings")
 require("project")
 require("surround")

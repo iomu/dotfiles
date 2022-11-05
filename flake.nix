@@ -133,7 +133,7 @@
         };
         mac = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-darwin";
-          modules = [ home-common home-work ];
+          modules = [ home-common home-mac ];
         };
       };
       nixosConfigurations.nixos = nixpkgs-system.lib.nixosSystem {
