@@ -7,7 +7,6 @@ require('nvim-tree').setup {
     renderer = {
         indent_markers = { enable = true }
     },
-    update_to_buf_dir = { enable = false },
 }
 
 local wk = require("which-key")
