@@ -100,6 +100,7 @@ in
       lsp_lines-nvim
       lsp_signature-nvim
       nvim-jdtls
+      symbols-outline-nvim
 
       # Completions
       nvim-cmp
