@@ -21,6 +21,7 @@ require('telescope').setup {
 }
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('projects')
+require('telescope').load_extension('noice')
 
 local wk = require("which-key")
 
@@ -47,8 +48,12 @@ wk.register({
             s = { require('telescope.builtin').git_status, "[G]it [S]tatus" },
         },
     },
-    ["<leader>?"] = { require('telescope.builtin').oldfiles, "Open Recent File" },
-    ["<leader><space>"] = { require('telescope.builtin').buffers, "Find existing buffers" },
+    ["<leader>?"] = { function()
+        require('telescope.builtin').oldfiles({ only_cwd = true })
+    end, "Open Recent File" },
+    ["<leader><space>"] = { function()
+        require('telescope.builtin').buffers({ sort_mru = true })
+    end, "Find existing buffers" },
     ["<leader>/"] = { function() require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
             previewer = false,
         })
