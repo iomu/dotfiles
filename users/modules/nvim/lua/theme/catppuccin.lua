@@ -27,38 +27,39 @@ require("catppuccin").setup({
         operators = {},
     },
     color_overrides = {},
-    custom_higghts = function(c)
-        local prompt = "#313244"
-        return {
-            TelescopeNormal = {
-                bg = c.base,
-                --[[ fg = c.fg_dark, ]]
-            },
-            TelescopeBorder = {
-                bg = c.base,
-                fg = c.base,
-            },
-            TelescopePromptNormal = {
-                bg = prompt,
-            },
-            TelescopePromptBorder = {
-                bg = prompt,
-                fg = prompt,
-            },
-            TelescopePromptTitle = {
-                bg = prompt,
-                fg = prompt,
-            },
-            TelescopePreviewTitle = {
-                bg = c.base,
-                fg = c.base,
-            },
-            TelescopeResultsTitle = {
-                bg = c.base,
-                fg = c.base,
-            },
-        }
-    end,
+    highlight_overrides = {
+        mocha = function(c)
+            local prompt = "#313244"
+            return {
+                TelescopeNormal = {
+                    bg = c.crust,
+                },
+                TelescopeBorder = {
+                    bg = c.crust,
+                    fg = c.crust,
+                },
+                TelescopePromptNormal = {
+                    bg = prompt,
+                },
+                TelescopePromptBorder = {
+                    bg = prompt,
+                    fg = prompt,
+                },
+                TelescopePromptTitle = {
+                    bg = prompt,
+                    fg = prompt,
+                },
+                TelescopePreviewTitle = {
+                    bg = c.crust,
+                    fg = c.crust,
+                },
+                TelescopeResultsTitle = {
+                    bg = c.crust,
+                    fg = c.crust,
+                },
+            }
+        end
+    },
     integrations = {
         cmp = true,
         fidget = true,
