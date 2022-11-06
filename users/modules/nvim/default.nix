@@ -43,8 +43,12 @@ let
     src = inputs.nvim-telescope-fzf-native-src;
   };
   nvim-noice = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-nice";
+    name = "nvim-noice";
     src = inputs.nvim-noice-src;
+  };
+  nvim-dirbuf = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-dirbuf";
+    src = inputs.nvim-dirbuf-src;
   };
 in
 {
@@ -74,6 +78,8 @@ in
 
       # File Tree
       nvim-tree-lua
+
+      nvim-dirbuf
 
       # Fuzzy Finder
       nvim-telescope-fzf-native
@@ -147,7 +153,7 @@ in
       nvim-treesitter-refactor
       nvim-treesitter-textobjects
       nvim-tree-climber
-      nvim-treesitter-context 
+      nvim-treesitter-context
 
       nvim-auto-save
       nvim-local-history

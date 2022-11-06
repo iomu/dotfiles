@@ -170,6 +170,22 @@
         "type": "github"
       }
     },
+    "nvim-dirbuf-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1661712690,
+        "narHash": "sha256-35pNyVO0Yx+g5nvcFOmi2npb9Bnv83mkOtQJ2eKbSyc=",
+        "owner": "elihunter173",
+        "repo": "dirbuf.nvim",
+        "rev": "ac7ad3c8e61630d15af1f6266441984f54f54fd2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elihunter173",
+        "repo": "dirbuf.nvim",
+        "type": "github"
+      }
+    },
     "nvim-local-history-src": {
       "flake": false,
       "locked": {
@@ -340,6 +356,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-system": "nixpkgs-system",
         "nvim-auto-save-src": "nvim-auto-save-src",
+        "nvim-dirbuf-src": "nvim-dirbuf-src",
         "nvim-local-history-src": "nvim-local-history-src",
         "nvim-lspsaga-src": "nvim-lspsaga-src",
         "nvim-noice-src": "nvim-noice-src",

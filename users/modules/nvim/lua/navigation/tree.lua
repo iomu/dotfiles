@@ -6,10 +6,18 @@ require('nvim-tree').setup {
     respect_buf_cwd = true,
     renderer = {
         indent_markers = { enable = true }
-    }
+    },
+    update_to_buf_dir = { enable = false },
 }
 
 local wk = require("which-key")
 wk.register({
     ["<leader><CR>"] = { "<cmd>NvimTreeToggle<cr>", "Open Tree" },
 })
+
+require("dirbuf").setup {
+    hash_padding = 2,
+    show_hidden = true,
+    sort_order = "default",
+    write_cmd = "DirbufSync",
+}
