@@ -38,7 +38,7 @@ vim.opt.autowrite = true
 vim.opt.autowriteall = true
 
 -- " Better display for messages
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 
 -- You will have bad experience for diagnostic messages when it's default 4000.
 vim.o.updatetime = 300

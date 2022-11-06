@@ -77,13 +77,12 @@ require("catppuccin").setup({
     },
 })
 
-require('lualine').setup {
+require('lualine').setup({
     options = {
         theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
-    }
-}
+    },
+})
 
-vim.opt.background = 'dark'
 vim.cmd.colorscheme "catppuccin"
