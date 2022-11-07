@@ -138,13 +138,22 @@ end
 --[[]]
 --[[ }) ]]
 
+local vscodeLldbPath = require("config").getVSCodeLldbPath()
+
 require 'rust-tools'.setup({
     server = {
         on_attach = on_attach,
         capabilities = capabilities,
     },
-    inlay_hints = {
-        auto = true,
+    tools = {
+        inlay_hints = {
+            auto = true,
+            only_current_line = true,
+        },
+    },
+    dap = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            vscodeLldbPath .. 'adapter/codelldb', vscodeLldbPath .. 'lldb/lib/liblldb.so'),
     },
 })
 
