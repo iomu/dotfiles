@@ -72,6 +72,10 @@
         url = "github:elihunter173/dirbuf.nvim";
         flake = false;
       };
+      nvim-dap-go-src = {
+        url = "github:leoluz/nvim-dap-go";
+        flake = false;
+      };
     };
 
   outputs =

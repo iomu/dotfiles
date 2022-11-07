@@ -170,6 +170,22 @@
         "type": "github"
       }
     },
+    "nvim-dap-go-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1667520985,
+        "narHash": "sha256-utDon+npwT1wT+clL+y+pau515hCUdeqvfUDPucu/+k=",
+        "owner": "leoluz",
+        "repo": "nvim-dap-go",
+        "rev": "c75921726ccfe97070285f206de49eddff276ea5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "leoluz",
+        "repo": "nvim-dap-go",
+        "type": "github"
+      }
+    },
     "nvim-dirbuf-src": {
       "flake": false,
       "locked": {
@@ -356,6 +372,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-system": "nixpkgs-system",
         "nvim-auto-save-src": "nvim-auto-save-src",
+        "nvim-dap-go-src": "nvim-dap-go-src",
         "nvim-dirbuf-src": "nvim-dirbuf-src",
         "nvim-local-history-src": "nvim-local-history-src",
         "nvim-lspsaga-src": "nvim-lspsaga-src",

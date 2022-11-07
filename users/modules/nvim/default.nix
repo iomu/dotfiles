@@ -50,6 +50,10 @@ let
     name = "nvim-dirbuf";
     src = inputs.nvim-dirbuf-src;
   };
+  nvim-dap-go = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-dap-go";
+    src = inputs.nvim-dap-go-src;
+  };
 in
 {
   programs.neovim = {
@@ -105,6 +109,7 @@ in
       # debugging
       nvim-dap
       nvim-dap-ui
+      nvim-dap-go
 
       # Completions
       nvim-cmp
@@ -196,6 +201,7 @@ in
 
       # Go
       gopls
+      delve
 
       # HTML/CSS/JS
       nodePackages.vscode-langservers-extracted

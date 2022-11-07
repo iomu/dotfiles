@@ -45,6 +45,8 @@ in
     jdk11
     maven
 
+    libtree
+
     wrangler
 
     yarn

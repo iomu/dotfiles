@@ -1,5 +1,7 @@
 local dap = require('dap')
 
+require('dap-go').setup()
+
 
 require("dapui").setup({
   icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
