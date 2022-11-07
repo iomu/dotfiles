@@ -54,6 +54,14 @@ let
     name = "nvim-dap-go";
     src = inputs.nvim-dap-go-src;
   };
+  nvim-neotest-go = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-neotest-go";
+    src = inputs.nvim-neotest-go-src;
+  };
+  nvim-neotest-rust = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-neotest-rust";
+    src = inputs.nvim-neotest-rust-src;
+  };
 in
 {
   programs.neovim = {
@@ -110,6 +118,11 @@ in
       nvim-dap
       nvim-dap-ui
       nvim-dap-go
+
+      # tests
+      neotest
+      nvim-neotest-go
+      nvim-neotest-rust
 
       # Completions
       nvim-cmp

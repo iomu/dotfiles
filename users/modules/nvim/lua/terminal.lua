@@ -13,7 +13,7 @@ end
 
 local wk = require('which-key')
 wk.register({
-    t = {
+    p = {
         name = 'terminal',
         k = { _toggle_k9s, "Toggle K9s", noremap = true, silent = true }
     }

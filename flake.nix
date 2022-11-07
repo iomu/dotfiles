@@ -76,6 +76,14 @@
         url = "github:leoluz/nvim-dap-go";
         flake = false;
       };
+      nvim-neotest-go-src = {
+        url = "github:nvim-neotest/neotest-go";
+        flake = false;
+      };
+      nvim-neotest-rust-src = {
+        url = "github:rouge8/neotest-rust";
+        flake = false;
+      };
     };
 
   outputs =

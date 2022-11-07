@@ -234,6 +234,38 @@
         "type": "github"
       }
     },
+    "nvim-neotest-go-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1667551627,
+        "narHash": "sha256-dMfs4qCoSk5YbXc7VvqRrCPj11x3AfoT9h79sv8zE4g=",
+        "owner": "nvim-neotest",
+        "repo": "neotest-go",
+        "rev": "45737334fe8f0e9df4848865d11f70c49956baca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neotest",
+        "repo": "neotest-go",
+        "type": "github"
+      }
+    },
+    "nvim-neotest-rust-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1667835122,
+        "narHash": "sha256-KhZQ5vptJhiVgoM1Un35u+OeKsPB1v0DP1eADWXjj60=",
+        "owner": "rouge8",
+        "repo": "neotest-rust",
+        "rev": "31d4084c0ddb0f4adc7ce5b99f29d6af591a38f6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rouge8",
+        "repo": "neotest-rust",
+        "type": "github"
+      }
+    },
     "nvim-noice-src": {
       "flake": false,
       "locked": {
@@ -376,6 +408,8 @@
         "nvim-dirbuf-src": "nvim-dirbuf-src",
         "nvim-local-history-src": "nvim-local-history-src",
         "nvim-lspsaga-src": "nvim-lspsaga-src",
+        "nvim-neotest-go-src": "nvim-neotest-go-src",
+        "nvim-neotest-rust-src": "nvim-neotest-rust-src",
         "nvim-noice-src": "nvim-noice-src",
         "nvim-surround-src": "nvim-surround-src",
         "nvim-telescope-fzf-native-src": "nvim-telescope-fzf-native-src",
