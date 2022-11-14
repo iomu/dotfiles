@@ -3,6 +3,7 @@
     ./modules/audio.nix
     ./modules/dev.nix
     ./modules/fonts.nix
+    ./modules/helix.nix
     ./modules/git.nix
     ./modules/nix.nix
     ./modules/system-management/index.nix
