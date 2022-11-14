@@ -86,7 +86,6 @@ in {
             primary = true;
             crtc = 0;
             rate = "99.95";
-            position = "0x0";
             mode = "2560x1440";
 
             position = "1920x0";
