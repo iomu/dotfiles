@@ -62,6 +62,10 @@ let
     name = "nvim-neotest-rust";
     src = inputs.nvim-neotest-rust-src;
   };
+  nvim-custom-snippets = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-custom-snippets";
+    src = ./snippets;
+  };
 in
 {
   programs.neovim = {
@@ -136,6 +140,7 @@ in
       cmp-treesitter
       luasnip
       friendly-snippets
+      nvim-custom-snippets
       lspkind-nvim
 
       # Git
