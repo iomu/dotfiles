@@ -1,17 +1,22 @@
 {
-    "simple assertion": {
-        "prefix": "ae",
-        "body": "if ${1:actual} != ${2:expected} {\n\tt.Fatalf(\"Unexpected ${3:value}: got=%q want=%q\", ${1}, ${2})\n}",
-        "description": "Test assertion for primitive values"
-    },
-    "equality assertion of complex structures": {
-        "prefix": "aed",
-        "body": "if diff := cmp.Diff(${2:expected}, ${1:actual}); diff != \"\" {\n\tt.Fatalf(\"Unexpected ${3:value} (-want, +got):\\n%s\", diff)\n}",
-        "description": "Compare to complex structures"
-    },
-    "equality assertion of complex structures": {
-        "prefix": "aep",
-        "body": "if diff := cmp.Diff(${2:expected}, ${1:actual}, protocmp.Transform()); diff != \"\" {\n\tt.Fatalf(\"Unexpected ${3:value} (-want, +got):\\n%s\", diff)\n}",
-        "description": "Test assertion for primitive values"
-    }
+  "simple assertion": {
+    "prefix": "ae",
+    "body": "if ${1:actual} != ${2:expected} {\n\tt.Fatalf(\"Unexpected ${3:value}: got=%q want=%q\", ${1}, ${2})\n}",
+    "description": "Test assertion for primitive values"
+  },
+  "equality assertion of complex structures": {
+    "prefix": "aed",
+    "body": "if diff := cmp.Diff(${2:expected}, ${1:actual}); diff != \"\" {\n\tt.Fatalf(\"Unexpected ${3:value} (-want, +got):\\n%s\", diff)\n}",
+    "description": "Compare to complex structures"
+  },
+  "equality assertion of complex structures with proto transform": {
+    "prefix": "aep",
+    "body": "if diff := cmp.Diff(${2:expected}, ${1:actual}, protocmp.Transform()); diff != \"\" {\n\tt.Fatalf(\"Unexpected ${3:value} (-want, +got):\\n%s\", diff)\n}",
+    "description": "Test assertion for primitive values"
+  },
+  "table driven tests": {
+    "prefix": "tc",
+    "body": "testCases := map[string]struct{${1}}{}\n\nfor name, tc := range testCases {\n\tt.Run(name, func(t *testing.T) {\n${2}\n\t})\n}",
+    "description": "Table driven test"
+  }
 }

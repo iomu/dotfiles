@@ -110,6 +110,8 @@ in
       nvim-lspconfig
       nvim-lspsaga
       rust-tools-nvim
+      flutter-tools-nvim
+
       # progress
       fidget-nvim
       trouble-nvim
@@ -153,6 +155,7 @@ in
           tree-sitter-bash
           tree-sitter-c
           tree-sitter-css
+          tree-sitter-dart
           tree-sitter-dockerfile
           tree-sitter-elm
           tree-sitter-go

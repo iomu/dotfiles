@@ -157,6 +157,12 @@ require 'rust-tools'.setup({
     },
 })
 
+require("flutter-tools").setup {
+    lsp = {
+        on_attach = on_attach,
+    }
+}
+
 -- null (Various tools as LSP) Setup
 
 local null_ls = require("null-ls")
