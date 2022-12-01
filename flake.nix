@@ -84,6 +84,10 @@
         url = "github:rouge8/neotest-rust";
         flake = false;
       };
+      nvim-null-ls-fork-src = {
+        url = "github:iomu/null-ls.nvim";
+        flake = false;
+      };
     };
 
   outputs =

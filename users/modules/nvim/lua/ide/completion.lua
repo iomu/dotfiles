@@ -114,9 +114,8 @@ cmp.setup({
         { name = "path" },
         { name = "treesitter" },
     },
-    confirm_opts = {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
+    confirmation = {
+        default_behavior = cmp.ConfirmBehavior.Replace,
     },
     window = {
         --		completion = cmp.config.window.bordered(),
@@ -125,6 +124,7 @@ cmp.setup({
     experimental = {
         ghost_text = true,
     },
+    preselect = cmp.PreselectMode.None,
 })
 
 -- Set configuration for specific filetype.

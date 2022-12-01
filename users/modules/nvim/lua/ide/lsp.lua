@@ -98,7 +98,7 @@ local json_schemas = {
 }
 
 local lsp_servers = { 'gopls', 'tsserver', 'sumneko_lua', 'rnix', 'terraformls', 'bashls', 'cmake',
-    'cssls', 'dockerls', 'html', 'jsonls', 'vimls', 'yamlls' };
+    'cssls', 'dockerls', 'html', 'jsonls', 'vimls', 'yamlls', 'kotlin_language_server' };
 
 local nvim_lsp = require("lspconfig")
 for _, lsp in ipairs(lsp_servers) do
@@ -166,7 +166,38 @@ require("flutter-tools").setup {
 -- null (Various tools as LSP) Setup
 
 local null_ls = require("null-ls")
+
+local h = require("null-ls.helpers")
+
+
+local golangci_formatting = h.make_builtin({
+    name = "golangci_lint_formatting",
+    method = null_ls.methods.FORMATTING,
+    filetypes = { "go" },
+    to_temp_file = true,
+    from_temp_file = true,
+    generate_temp_filename = function (filename)
+        return string.format("null-ls_%d_%s", math.random(100000, 999999), filename)
+    end,
+    generator_opts = {
+        command = "golangci-lint",
+        to_stdin = true,
+        args = {
+            "run",
+            "--fix",
+            "--allow-parallel-runners=false",
+            "-c", "$ROOT/golang-ci.formatting.yaml",
+            "$FILENAME",
+        },
+    },
+    factory = h.formatter_factory,
+})
+
 null_ls.setup {
+    debug = true,
+    generate_temp_filename = function (filename)
+        return string.format("null-ls_%d_%s", math.random(100000, 999999), filename)
+    end,
     sources = {
         -- grammer
         null_ls.builtins.diagnostics.vale,
@@ -185,7 +216,13 @@ null_ls.setup {
         null_ls.builtins.diagnostics.gitlint,
         null_ls.builtins.diagnostics.hadolint,
         null_ls.builtins.diagnostics.yamllint,
+        -- go
+        null_ls.builtins.diagnostics.golangci_lint.with({
+            extra_args = { "-c", "$ROOT/golang-ci.yaml" }
+        }),
+        golangci_formatting,
     },
+    root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".git"),
     on_attach = on_attach,
 }
 

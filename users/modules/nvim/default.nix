@@ -66,6 +66,10 @@ let
     name = "nvim-custom-snippets";
     src = ./snippets;
   };
+  nvim-null-ls = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-null-ls";
+    src = inputs.nvim-null-ls-fork-src;
+  };
 in
 {
   programs.neovim = {
@@ -106,7 +110,8 @@ in
       plenary-nvim
 
       # LSP
-      null-ls-nvim
+      # null-ls-nvim
+      nvim-null-ls
       nvim-lspconfig
       nvim-lspsaga
       rust-tools-nvim
@@ -229,6 +234,9 @@ in
 
       # JavaScript/Typescript
       nodePackages.typescript-language-server
+
+      # Kotlin 
+      kotlin-language-server
 
       # lua
       luaformatter

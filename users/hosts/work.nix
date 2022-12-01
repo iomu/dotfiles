@@ -35,6 +35,7 @@ in {
     pkgs.nixgl.nixGLIntel
     pkgs.nixgl.auto.nixGLNvidia
     pkgs.nixgl.auto.nixGLDefault
+    pkgs.postman
     kafkactl
   ];
 

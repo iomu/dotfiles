@@ -282,6 +282,22 @@
         "type": "github"
       }
     },
+    "nvim-null-ls-fork-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669114313,
+        "narHash": "sha256-ktlqwWtvwOV9Ibg4iJB2hvbZPEoTCWTkuda/qOTDwCI=",
+        "owner": "iomu",
+        "repo": "null-ls.nvim",
+        "rev": "98323b09503b9cad3739c2f91445c6ef4842e90c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "iomu",
+        "repo": "null-ls.nvim",
+        "type": "github"
+      }
+    },
     "nvim-surround-src": {
       "flake": false,
       "locked": {
@@ -411,6 +427,7 @@
         "nvim-neotest-go-src": "nvim-neotest-go-src",
         "nvim-neotest-rust-src": "nvim-neotest-rust-src",
         "nvim-noice-src": "nvim-noice-src",
+        "nvim-null-ls-fork-src": "nvim-null-ls-fork-src",
         "nvim-surround-src": "nvim-surround-src",
         "nvim-telescope-fzf-native-src": "nvim-telescope-fzf-native-src",
         "nvim-tokyonight-src": "nvim-tokyonight-src",
