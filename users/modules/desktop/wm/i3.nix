@@ -3,7 +3,6 @@
 
   xsession.windowManager.i3 = {
     enable = true;
-    package = pkgs.i3-gaps;
     config = {
       modifier = "Mod4";
       menu = ''"rofi -modi 'window,drun,run' -show drun -display-drun 'open'"'';

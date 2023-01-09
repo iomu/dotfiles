@@ -88,6 +88,10 @@
         url = "github:iomu/null-ls.nvim";
         flake = false;
       };
+      nvim-rust-tools-src = {
+        url = "github:simrat39/rust-tools.nvim";
+        flake = false;
+      };
     };
 
   outputs =

@@ -70,6 +70,10 @@ let
     name = "nvim-null-ls";
     src = inputs.nvim-null-ls-fork-src;
   };
+  nvim-rust-tools = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-rust-tools";
+    src = inputs.nvim-rust-tools-src;
+  };
 in
 {
   programs.neovim = {
@@ -114,7 +118,7 @@ in
       nvim-null-ls
       nvim-lspconfig
       nvim-lspsaga
-      rust-tools-nvim
+      nvim-rust-tools
       flutter-tools-nvim
 
       # progress
