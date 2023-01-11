@@ -200,7 +200,6 @@ in
       nvim-treesitter-context
 
       nvim-auto-save
-      nvim-local-history
 
       comment-nvim
       nvim-ts-context-commentstring

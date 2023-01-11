@@ -37,6 +37,7 @@ in {
     pkgs.nixgl.auto.nixGLDefault
     pkgs.postman
     kafkactl
+    pkgs.graphviz
   ];
 
   home.sessionVariables = { TERMINAL = terminal; };
