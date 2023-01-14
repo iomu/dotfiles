@@ -74,6 +74,10 @@ let
     name = "nvim-rust-tools";
     src = inputs.nvim-rust-tools-src;
   };
+  nvim-tabout = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "nvim-tabout";
+    src = inputs.nvim-tabout-src;
+  };
 in
 {
   programs.neovim = {
@@ -200,6 +204,8 @@ in
 
       comment-nvim
       nvim-ts-context-commentstring
+
+      nvim-tabout
 
       editorconfig-nvim
 

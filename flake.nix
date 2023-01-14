@@ -92,6 +92,10 @@
         url = "github:simrat39/rust-tools.nvim";
         flake = false;
       };
+      nvim-tabout-src = {
+        url = "github:abecodes/tabout.nvim";
+        flake = false;
+      };
     };
 
   outputs =

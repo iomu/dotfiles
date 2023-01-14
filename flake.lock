@@ -330,6 +330,22 @@
         "type": "github"
       }
     },
+    "nvim-tabout-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665147867,
+        "narHash": "sha256-4arOTQxCtdMpzJuMcDjZU0l4T5pjQKuPj4Yvot3yozc=",
+        "owner": "abecodes",
+        "repo": "tabout.nvim",
+        "rev": "c37ce26f316a2df693140450b8def41e89c0f57e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abecodes",
+        "repo": "tabout.nvim",
+        "type": "github"
+      }
+    },
     "nvim-telescope-fzf-native-src": {
       "flake": false,
       "locked": {
@@ -446,6 +462,7 @@
         "nvim-null-ls-fork-src": "nvim-null-ls-fork-src",
         "nvim-rust-tools-src": "nvim-rust-tools-src",
         "nvim-surround-src": "nvim-surround-src",
+        "nvim-tabout-src": "nvim-tabout-src",
         "nvim-telescope-fzf-native-src": "nvim-telescope-fzf-native-src",
         "nvim-tokyonight-src": "nvim-tokyonight-src",
         "nvim-tree-climber-src": "nvim-tree-climber-src",
