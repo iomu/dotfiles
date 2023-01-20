@@ -22,7 +22,7 @@ in
     evans
     protobuf
 
-    gnumake
+    gnumake42
 
     # kubernetes
     kubectl

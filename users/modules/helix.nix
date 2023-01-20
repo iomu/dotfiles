@@ -1,7 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages."${builtins.currentSystem}".default;
     languages = [
       { name = "rust"; auto-format = true; }
     ];
