@@ -20,6 +20,10 @@
         url = "github:ktr0731/evans/v0.10.9";
         flake = false;
       };
+      earthly = {
+        url = "github:earthly/earthly/v0.7.0-rc1";
+        flake = false;
+      };
 
       kafkactl = {
         url = "github:deviceinsight/kafkactl/v2.3.0";
