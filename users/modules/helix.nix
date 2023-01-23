@@ -7,8 +7,9 @@
       { name = "rust"; auto-format = true; }
     ];
     settings = {
-      theme = "catppuccin";
+      theme = "catppuccin_mocha";
       editor = {
+        auto-save = true;
         line-number = "relative";
         cursorline = true;
         color-modes = true;

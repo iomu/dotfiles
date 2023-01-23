@@ -128,7 +128,9 @@
       "original": {
         "owner": "nix-community",
         "repo": "dream2nix",
-        },
+        "type": "github"
+        }
+    },
     "earthly": {
       "flake": false,
       "locked": {
