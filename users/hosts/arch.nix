@@ -8,7 +8,7 @@ let
     config = { allowUnfree = true; };
   };
   terminal =
-    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.kitty}/bin/kitty";
+    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.wezterm}/bin/wezterm";
 in
 {
   imports = [ ../modules/desktop/wm/i3.nix ];

@@ -10,6 +10,7 @@
     ./modules/terminal/default.nix
     ./modules/terminal/alacritty.nix
     ./modules/terminal/kitty.nix
+    ./modules/terminal/wezterm.nix
     ./modules/terminal/tmux.nix
     ./modules/nvim/default.nix
     ./modules/terminal/zsh.nix

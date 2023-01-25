@@ -8,7 +8,7 @@ let
     config = { allowUnfree = true; };
   };
   terminal =
-    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.kitty}/bin/kitty";
+    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.wezterm}/bin/wezterm";
 
   kafkactl = pkgs.buildGoModule rec {
     pname = "kafkactl";
