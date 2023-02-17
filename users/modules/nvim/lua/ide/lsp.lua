@@ -25,7 +25,6 @@ local on_attach = function(client, bufnr)
 
     local function create_mapping(command, help)
         return { command, help, noremap = true, silent = true, buffer = bufnr }
-
     end
 
     wk.register({
@@ -55,46 +54,46 @@ local json_schemas = {
         fileMatch = { "tsconfig.json", "tsconfig.*.json" },
         url = "https://json.schemastore.org/tsconfig.json"
     }, {
-        description = "Babel configuration",
-        fileMatch = { ".babelrc.json", ".babelrc", "babel.config.json" },
-        url = "https://json.schemastore.org/babelrc.json"
-    }, {
-        description = "ESLint config",
-        fileMatch = { ".eslintrc.json", ".eslintrc" },
-        url = "https://json.schemastore.org/eslintrc.json"
-    }, {
-        description = "Prettier config",
-        fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
-        url = "https://json.schemastore.org/prettierrc"
-    }, {
-        description = "Stylelint config",
-        fileMatch = { ".stylelintrc", ".stylelintrc.json", "stylelint.config.json" },
-        url = "https://json.schemastore.org/stylelintrc"
-    }, {
-        description = "Configuration file as an alternative for configuring your repository in the settings page.",
-        fileMatch = { ".codeclimate.json" },
-        url = "https://json.schemastore.org/codeclimate.json"
-    }, {
-        description = "AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment.",
-        fileMatch = { "*.cf.json", "cloudformation.json" },
-        url = "https://raw.githubusercontent.com/awslabs/goformation/v5.2.9/schema/cloudformation.schema.json"
-    }, {
-        description = "The AWS Serverless Application Model (AWS SAM, previously known as Project Flourish) extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by your serverless application.",
-        fileMatch = { "serverless.template", "*.sam.json", "sam.json" },
-        url = "https://raw.githubusercontent.com/awslabs/goformation/v5.2.9/schema/sam.schema.json"
-    }, {
-        description = "Json schema for properties json file for a GitHub Workflow template",
-        fileMatch = { ".github/workflow-templates/**.properties.json" },
-        url = "https://json.schemastore.org/github-workflow-template-properties.json"
-    }, {
-        description = "golangci-lint configuration file",
-        fileMatch = { ".golangci.toml", ".golangci.json" },
-        url = "https://json.schemastore.org/golangci-lint.json"
-    }, {
-        description = "NPM configuration file",
-        fileMatch = { "package.json" },
-        url = "https://json.schemastore.org/package.json"
-    }
+    description = "Babel configuration",
+    fileMatch = { ".babelrc.json", ".babelrc", "babel.config.json" },
+    url = "https://json.schemastore.org/babelrc.json"
+}, {
+    description = "ESLint config",
+    fileMatch = { ".eslintrc.json", ".eslintrc" },
+    url = "https://json.schemastore.org/eslintrc.json"
+}, {
+    description = "Prettier config",
+    fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
+    url = "https://json.schemastore.org/prettierrc"
+}, {
+    description = "Stylelint config",
+    fileMatch = { ".stylelintrc", ".stylelintrc.json", "stylelint.config.json" },
+    url = "https://json.schemastore.org/stylelintrc"
+}, {
+    description = "Configuration file as an alternative for configuring your repository in the settings page.",
+    fileMatch = { ".codeclimate.json" },
+    url = "https://json.schemastore.org/codeclimate.json"
+}, {
+    description = "AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment.",
+    fileMatch = { "*.cf.json", "cloudformation.json" },
+    url = "https://raw.githubusercontent.com/awslabs/goformation/v5.2.9/schema/cloudformation.schema.json"
+}, {
+    description = "The AWS Serverless Application Model (AWS SAM, previously known as Project Flourish) extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by your serverless application.",
+    fileMatch = { "serverless.template", "*.sam.json", "sam.json" },
+    url = "https://raw.githubusercontent.com/awslabs/goformation/v5.2.9/schema/sam.schema.json"
+}, {
+    description = "Json schema for properties json file for a GitHub Workflow template",
+    fileMatch = { ".github/workflow-templates/**.properties.json" },
+    url = "https://json.schemastore.org/github-workflow-template-properties.json"
+}, {
+    description = "golangci-lint configuration file",
+    fileMatch = { ".golangci.toml", ".golangci.json" },
+    url = "https://json.schemastore.org/golangci-lint.json"
+}, {
+    description = "NPM configuration file",
+    fileMatch = { "package.json" },
+    url = "https://json.schemastore.org/package.json"
+}
 }
 
 local lsp_servers = { 'gopls', 'tsserver', 'sumneko_lua', 'rnix', 'terraformls', 'bashls', 'cmake',
@@ -137,7 +136,6 @@ end
 --[[     cmd = { '/nix/store/zcvhhb2cjs85vyfx6pp7131zi83fc2vz-java-language-server-0.2.38/share/java/java-language-server/lang_server_linux.sh' }, ]]
 --[[]]
 --[[ }) ]]
-
 local vscodeLldbPath = require("config").getVSCodeLldbPath()
 
 require 'rust-tools'.setup({
@@ -171,31 +169,31 @@ local h = require("null-ls.helpers")
 
 
 local golangci_formatting = h.make_builtin({
-    name = "golangci_lint_formatting",
-    method = null_ls.methods.FORMATTING,
-    filetypes = { "go" },
-    to_temp_file = true,
-    from_temp_file = true,
-    generate_temp_filename = function (filename)
-        return string.format("null-ls_%d_%s", math.random(100000, 999999), filename)
-    end,
-    generator_opts = {
-        command = "golangci-lint",
-        to_stdin = true,
-        args = {
-            "run",
-            "--fix",
-            "--allow-parallel-runners=false",
-            "-c", "$ROOT/golang-ci.formatting.yaml",
-            "$FILENAME",
+        name = "golangci_lint_formatting",
+        method = null_ls.methods.FORMATTING,
+        filetypes = { "go" },
+        to_temp_file = true,
+        from_temp_file = true,
+        generate_temp_filename = function(filename)
+            return string.format("null-ls_%d_%s", math.random(100000, 999999), filename)
+        end,
+        generator_opts = {
+            command = "golangci-lint",
+            to_stdin = true,
+            args = {
+                "run",
+                "--fix",
+                "--allow-parallel-runners=false",
+                "-c", "$ROOT/golang-ci.formatting.yaml",
+                "$FILENAME",
+            },
         },
-    },
-    factory = h.formatter_factory,
-})
+        factory = h.formatter_factory,
+    })
 
 null_ls.setup {
     debug = true,
-    generate_temp_filename = function (filename)
+    generate_temp_filename = function(filename)
         return string.format("null-ls_%d_%s", math.random(100000, 999999), filename)
     end,
     sources = {
@@ -229,23 +227,7 @@ null_ls.setup {
 
 -- prettier output for lsp diagnostics/renaming menu/references list/etc
 local saga = require 'lspsaga'
-saga.init_lsp_saga {
-    border_style = "rounded",
-    move_in_saga = { prev = 'k', next = 'j' },
-    diagnostic_header = { " ", " ", "", " " },
-    code_action_icon = " ",
-    finder_action_keys = {
-        open = '<CR>',
-        vsplit = 'v',
-        split = 's',
-        quit = { 'q', '<Esc>' }
-    },
-    code_action_keys = {
-        quit = { "q", '<Esc>' },
-        exec = "<CR>",
-    },
-}
-require 'lspsaga.diagnostic'.show_line_diagnostics()
+saga.setup()
 
 require("lsp_lines").setup()
 
@@ -273,9 +255,9 @@ vim.diagnostic.config({
 
 local diagnostic_symbol_map = {
     { name = "DiagnosticSignError", symbol = "│" },
-    { name = "DiagnosticSignWarn", symbol = "│" },
-    { name = "DiagnosticSignInfo", symbol = "│" },
-    { name = "DiagnosticSignHint", symbol = " " },
+    { name = "DiagnosticSignWarn",  symbol = "│" },
+    { name = "DiagnosticSignInfo",  symbol = "│" },
+    { name = "DiagnosticSignHint",  symbol = " " },
 }
 
 for _, elm in ipairs(diagnostic_symbol_map) do
@@ -290,7 +272,6 @@ end
 --[[         blend = 0, -- required for catppuccin ]]
 --[[     } ]]
 --[[ } ]]
-
 require("trouble").setup {
     position = "bottom", -- position of the list can be: bottom, top, left, right
     height = 10, -- height of the trouble list when position is top or bottom

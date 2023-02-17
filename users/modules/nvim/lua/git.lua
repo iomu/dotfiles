@@ -1,45 +1,45 @@
 local gitsigns = require("gitsigns")
 
 require('gitsigns').setup {
-  signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-  },
-  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
-  watch_gitdir = {
-    interval = 1000,
-    follow_files = true
-  },
-  attach_to_untracked = true,
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-    delay = 1000,
-    ignore_whitespace = false,
-  },
-  current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
-  sign_priority = 6,
-  update_debounce = 100,
-  status_formatter = nil, -- Use default
-  max_file_length = 40000, -- Disable if file is longer than this (in lines)
-  preview_config = {
-    -- Options passed to nvim_open_win
-    border = 'single',
-    style = 'minimal',
-    relative = 'cursor',
-    row = 0,
-    col = 1
-  },
-  yadm = {
-    enable = false
-  },
+    signs                        = {
+        add          = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+        change       = { hl = 'GitSignsChange', text = '│', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+        delete       = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+        topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+        changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+    },
+    signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
+    numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+    watch_gitdir                 = {
+        interval = 1000,
+        follow_files = true
+    },
+    attach_to_untracked          = true,
+    current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts      = {
+        virt_text = true,
+        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+        delay = 1000,
+        ignore_whitespace = false,
+    },
+    current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+    sign_priority                = 6,
+    update_debounce              = 100,
+    status_formatter             = nil, -- Use default
+    max_file_length              = 40000, -- Disable if file is longer than this (in lines)
+    preview_config               = {
+        -- Options passed to nvim_open_win
+        border = 'single',
+        style = 'minimal',
+        relative = 'cursor',
+        row = 0,
+        col = 1
+    },
+    yadm                         = {
+        enable = false
+    },
 }
 
 local actions = require("diffview.actions")
@@ -97,14 +97,6 @@ require("diffview").setup({
         },
     },
     file_history_panel = {
-        log_options = { -- See ':h diffview-config-log_options'
-            single_file = {
-                diff_merges = "combined",
-            },
-            multi_file = {
-                diff_merges = "first-parent",
-            },
-        },
         win_config = { -- See ':h diffview-config-win_config'
             position = "bottom",
             height = 16,
@@ -168,7 +160,7 @@ require("diffview").setup({
             ["U"]             = actions.unstage_all, -- Unstage all entries.
             ["X"]             = actions.restore_entry, -- Restore entry to the state on the left side.
             ["L"]             = actions.open_commit_log, -- Open the commit log panel.
-            ["<c-b>"]         = actions.scroll_view(-0.25), -- Scroll the view up
+            ["<c-b>"]         = actions.scroll_view( -0.25), -- Scroll the view up
             ["<c-f>"]         = actions.scroll_view(0.25), -- Scroll the view down
             ["<tab>"]         = actions.select_next_entry,
             ["<s-tab>"]       = actions.select_prev_entry,
@@ -198,7 +190,7 @@ require("diffview").setup({
             ["<cr>"]          = actions.select_entry,
             ["o"]             = actions.select_entry,
             ["<2-LeftMouse>"] = actions.select_entry,
-            ["<c-b>"]         = actions.scroll_view(-0.25),
+            ["<c-b>"]         = actions.scroll_view( -0.25),
             ["<c-f>"]         = actions.scroll_view(0.25),
             ["<tab>"]         = actions.select_next_entry,
             ["<s-tab>"]       = actions.select_prev_entry,
