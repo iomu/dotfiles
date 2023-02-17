@@ -68,7 +68,7 @@ in {
     # infra
     terraform
     # go
-    go
+    go_1_20
 
     lcov
     gettext
