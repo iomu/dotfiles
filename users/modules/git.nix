@@ -3,8 +3,7 @@ let
   globalGitIgnore = pkgs.writeText ".gitignore_global" ''
     .local-history
   '';
-in
-{
+in {
   home.packages = with pkgs; [ git-crypt gh ];
 
   programs.git = {

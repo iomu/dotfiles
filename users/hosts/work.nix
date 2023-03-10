@@ -24,9 +24,9 @@ let
 in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 
-  xdg.configFile."nix/nix.conf".text = ''
-    experimental-features = nix-command flakes
-  '';
+  nix.settings = {
+      experimental-features = "nix-command flakes";
+    };
 
   programs.git.userEmail = "johannes.mueller@freiheit.com";
   home.packages = [

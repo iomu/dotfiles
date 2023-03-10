@@ -8,10 +8,9 @@
     };
     theme = "Catppuccin-Mocha";
     keybindings = {
-        "ctrl+f" = "launch --type=overlay --stdin-source=@screen_scrollback ${pkgs.fzf}/bin/fzf --no-sort --no-mouse --exact -i --tac";
+      "ctrl+f" =
+        "launch --type=overlay --stdin-source=@screen_scrollback ${pkgs.fzf}/bin/fzf --no-sort --no-mouse --exact -i --tac";
     };
-    settings = {
-        scrollback_lines = 10000;
-    };
+    settings = { scrollback_lines = 10000; };
   };
 }

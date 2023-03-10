@@ -42,8 +42,7 @@ let
 
     subPackages = [ "./cmd/earthly" "./cmd/debugger" ];
   };
-in
-{
+in {
   home.packages = with pkgs; [
     # docker
     docker-compose

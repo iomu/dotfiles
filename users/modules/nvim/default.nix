@@ -78,8 +78,7 @@ let
     name = "nvim-tabout";
     src = inputs.nvim-tabout-src;
   };
-in
-{
+in {
   programs.neovim = {
     enable = true;
     vimAlias = true;

@@ -9,13 +9,13 @@ let
   };
   terminal =
     "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.wezterm}/bin/wezterm";
-in
-{
+in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 
-  xdg.configFile."nix/nix.conf".text = ''
-    experimental-features = nix-command flakes 
-  '';
+  nix.package = pkgs.nix;
+  nix.settings = {
+      experimental-features = ["nix-command" "flakes"];
+    };
 
   programs.git.userEmail = "muellerjohannes23@gmail.com";
   home.packages = [ apply-user pkgs.nixgl.auto.nixGLDefault ];

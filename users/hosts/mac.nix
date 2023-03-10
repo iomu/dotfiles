@@ -8,9 +8,9 @@ let
   };
   terminal = "${pkgs.alacritty}/bin/alacritty";
 in {
-  xdg.configFile."nix/nix.conf".text = ''
-    experimental-features = nix-command flakes
-  '';
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+  };
 
   programs.git.userEmail = "johannes.mueller@freiheit.com";
   home.packages = [ apply-user pkgs.cocoapods ];

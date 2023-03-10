@@ -1,11 +1,11 @@
-{ config, pkgs, lib, inputs, ... }:
-{
+{ config, pkgs, lib, inputs, ... }: {
   programs.helix = {
     enable = true;
     package = inputs.helix.packages."${builtins.currentSystem}".default;
-    languages = [
-      { name = "rust"; auto-format = true; }
-    ];
+    languages = [{
+      name = "rust";
+      auto-format = true;
+    }];
     settings = {
       theme = "catppuccin_mocha";
       editor = {
@@ -18,9 +18,7 @@
           normal = "block";
           select = "underline";
         };
-        indent-guides = {
-          render = true;
-        };
+        indent-guides = { render = true; };
       };
     };
   };
