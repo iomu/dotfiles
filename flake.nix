@@ -1,14 +1,20 @@
 {
   description = "Dotfiles";
 
-  inputs = {
-    nixpkgs-system.url =
-      "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixgl.url = "github:guibou/nixGL";
-    helix.url = "github:helix-editor/helix";
+  inputs =
+    {
+      nixpkgs-system.url =
+        "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
+      nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+      home-manager.url = "github:nix-community/home-manager/master";
+      home-manager.inputs.nixpkgs.follows = "nixpkgs";
+      nixgl.url = "github:guibou/nixGL";
+      nci = {
+        url = "github:yusdacra/nix-cargo-integration";
+      };
+      helix = {
+        url = "github:helix-editor/helix";
+      };
 
     # awesomewm modules
     bling = {
