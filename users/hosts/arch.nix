@@ -18,7 +18,7 @@ in {
     };
 
   programs.git.userEmail = "muellerjohannes23@gmail.com";
-  home.packages = [ apply-user pkgs.nixgl.auto.nixGLDefault ];
+  home.packages = [ apply-user pkgs.nixgl.auto.nixGLDefault pkgs.texlab ];
 
   home.sessionVariables = { TERMINAL = terminal; };
 
