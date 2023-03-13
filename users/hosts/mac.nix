@@ -8,6 +8,7 @@ let
   };
   terminal = "${pkgs.alacritty}/bin/alacritty";
 in {
+  nix.package = pkgs.nix;
   nix.settings = {
     experimental-features = "nix-command flakes";
   };

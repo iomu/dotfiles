@@ -24,6 +24,7 @@ let
 in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 
+  nix.package = pkgs.nix;
   nix.settings = {
       experimental-features = "nix-command flakes";
     };
