@@ -9,9 +9,6 @@
       home-manager.url = "github:nix-community/home-manager/master";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
       nixgl.url = "github:guibou/nixGL";
-      nci = {
-        url = "github:yusdacra/nix-cargo-integration";
-      };
       helix = {
         url = "github:helix-editor/helix";
       };
