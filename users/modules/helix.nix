@@ -19,6 +19,9 @@
           select = "underline";
         };
         indent-guides = { render = true; };
+        lsp = {
+          display-inlay-hints = true;  
+        };
       };
     };
   };
