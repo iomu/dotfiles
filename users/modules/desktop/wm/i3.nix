@@ -129,9 +129,8 @@
         blocks = [
           {
             block = "focused_window";
-            max_width = 50;
             show_marks = "visible";
-          }
+            format = "$title.str(max_w:50)";          }
           {
             block = "disk_space";
             path = "/";
