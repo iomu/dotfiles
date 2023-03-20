@@ -129,39 +129,42 @@
         blocks = [
           {
             block = "focused_window";
-            show_marks = "visible";
-            format = "$title.str(max_w:50)";          }
+            format = "$title.str(max_w:50) |";
+          }
           {
             block = "disk_space";
             path = "/";
-            alias = "/";
             info_type = "available";
-            unit = "GB";
-            interval = 60;
+            alert_unit = "GB";
+            interval = 20;
             warning = 20.0;
             alert = 10.0;
-            format = "{icon} {used}/{total}";
+            format = "$icon $used/$total";
           }
           {
             block = "memory";
-            display_type = "memory";
-            format_mem = "{mem_used}/{mem_total}({mem_used_percents})";
+            format = "$mem_used/$mem_total ($mem_used_percents)";
           }
           {
             block = "cpu";
             interval = 1;
-            format = "{barchart} {utilization}";
+            format = "$icon $barchart $utilization";
+            format_alt = "$icon $frequency{ $boost|}";
           }
           {
             block = "load";
             interval = 1;
-            format = "{1m}";
+            format = "$icon $1m.eng(w:4)";
           }
           { block = "sound"; }
           {
             block = "time";
-            interval = 60;
-            format = "%a %d/%m %R";
+            interval = 5;
+            format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+          }
+          {
+            block = "battery";
+            missing_format = "";
           }
         ];
       };

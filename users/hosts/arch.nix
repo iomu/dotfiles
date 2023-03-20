@@ -13,9 +13,7 @@ in {
   imports = [ ../modules/desktop/wm/i3.nix ];
 
   nix.package = pkgs.nix;
-  nix.settings = {
-      experimental-features = ["nix-command" "flakes"];
-    };
+  nix.settings = { experimental-features = [ "nix-command" "flakes" ]; };
 
   programs.git.userEmail = "muellerjohannes23@gmail.com";
   home.packages = [ apply-user pkgs.nixgl.auto.nixGLDefault pkgs.texlab ];
