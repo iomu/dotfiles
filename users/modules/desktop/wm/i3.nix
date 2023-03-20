@@ -158,13 +158,13 @@
           }
           { block = "sound"; }
           {
+            block = "battery";
+            missing_format = "";
+          }
+          {
             block = "time";
             interval = 5;
             format = " $timestamp.datetime(f:'%a %d/%m %R') ";
-          }
-          {
-            block = "battery";
-            missing_format = "";
           }
         ];
       };
