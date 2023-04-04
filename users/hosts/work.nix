@@ -37,6 +37,7 @@ in {
     pkgs.postman
     kafkactl
     pkgs.graphviz
+    pkgs.pre-commit
   ];
 
   home.sessionVariables = { TERMINAL = terminal; };
