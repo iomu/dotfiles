@@ -34,7 +34,7 @@ in {
     pkgs.nixgl.nixGLIntel
     pkgs.nixgl.auto.nixGLNvidia
     pkgs.nixgl.auto.nixGLDefault
-    pkgs.postman
+    # pkgs.postman
     kafkactl
     pkgs.graphviz
     pkgs.pre-commit

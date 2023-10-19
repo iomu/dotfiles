@@ -66,6 +66,10 @@ in {
     azure-storage-azcopy
     # infra
     terraform
+    tflint
+    terrascan
+    terraform-docs
+    
     # go
     go
 
@@ -74,6 +78,10 @@ in {
     # java
     jdk11
     maven
+
+    nodejs
+
+    postgresql
 
     libtree
 

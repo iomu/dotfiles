@@ -38,7 +38,7 @@
 
   programs.starship = { enable = true; };
 
-  programs.exa = {
+  programs.eza = {
     enable = true;
     enableAliases = true;
   };
@@ -53,4 +53,13 @@
   programs.broot = { enable = true; };
 
   programs.navi = { enable = true; };
+
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      filter_mode_shell_up_key_binding "session";
+      show_help = false;
+    };
+  };
 }

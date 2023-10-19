@@ -2,10 +2,12 @@
   programs.helix = {
     enable = true;
     package = inputs.helix.packages."${builtins.currentSystem}".default;
-    languages = [{
+    languages = {
+      language = [{
       name = "rust";
       auto-format = true;
     }];
+    };
     settings = {
       theme = "catppuccin_mocha";
       editor = {
@@ -30,7 +32,7 @@
     delve
 
     # rust
-    rust-analyzer
+    # rust-analyzer
 
     # Nix
     rnix-lsp

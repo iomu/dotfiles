@@ -121,7 +121,7 @@
 
       home-common = { lib, ... }: {
         nixpkgs.config.allowUnfreePredicate = pkg:
-          builtins.elem (lib.getName pkg) [ ];
+          builtins.elem (lib.getName pkg) [ "terraform"];
 
         programs.home-manager.enable = true;
         home.stateVersion = "21.05";

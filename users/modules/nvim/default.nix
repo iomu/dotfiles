@@ -17,24 +17,24 @@ let
     name = "tokyonight.nvim";
     src = inputs.nvim-tokyonight-src;
   };
-  nvim-lspsaga = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-lspsaga = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-lspsaga";
     src = inputs.nvim-lspsaga-src;
     buildInputs = [ pkgs.lua53Packages.busted ];
   };
-  nvim-auto-save = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-auto-save = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-auto-save";
     src = inputs.nvim-auto-save-src;
   };
-  nvim-local-history = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-local-history = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-local-history";
     src = inputs.nvim-local-history-src;
   };
-  nvim-ts-context-commentstring = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-ts-context-commentstring = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-ts-context-commentstring";
     src = inputs.nvim-ts-context-commentstring-src;
   };
-  nvim-tree-climber = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-tree-climber = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-tree-climber";
     src = inputs.nvim-tree-climber-src;
   };
@@ -54,27 +54,27 @@ let
     name = "nvim-dap-go";
     src = inputs.nvim-dap-go-src;
   };
-  nvim-neotest-go = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-neotest-go = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-neotest-go";
     src = inputs.nvim-neotest-go-src;
   };
-  nvim-neotest-rust = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-neotest-rust = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-neotest-rust";
     src = inputs.nvim-neotest-rust-src;
   };
-  nvim-custom-snippets = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-custom-snippets = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-custom-snippets";
     src = ./snippets;
   };
-  nvim-null-ls = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-null-ls = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-null-ls";
     src = inputs.nvim-null-ls-fork-src;
   };
-  nvim-rust-tools = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-rust-tools = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-rust-tools";
     src = inputs.nvim-rust-tools-src;
   };
-  nvim-tabout = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  nvim-tabout = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-tabout";
     src = inputs.nvim-tabout-src;
   };
@@ -264,7 +264,7 @@ in {
       statix
 
       # Rust
-      rust-analyzer
+      # rust-analyzer
       rustfmt
       clippy
 
