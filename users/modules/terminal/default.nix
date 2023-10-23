@@ -58,7 +58,7 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      filter_mode_shell_up_key_binding "session";
+      filter_mode_shell_up_key_binding = "session";
       show_help = false;
     };
   };
