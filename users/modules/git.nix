@@ -33,7 +33,7 @@ in {
 
     extraConfig = {
       core = {
-        editor = "vim";
+        editor = "${config.programs.helix.package}/bin/hx";
         excludesFile = "${globalGitIgnore}";
       };
     };

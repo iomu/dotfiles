@@ -42,6 +42,13 @@ in {
 
   home.sessionVariables = { TERMINAL = terminal; };
 
+  
+  programs.zsh.shellAliases = {
+    cbtd = "cbt -project product-backbone-dev-f3fa825d";
+    cbti = "cbt -project product-backbone-int-146e978d";
+    cbtp = "cbt -project product-backbone-prd-5aacabc8";
+  };
+  
   home.sessionPath = [
     "/usr/local/sbin"
     "/usr/local/bin"

@@ -61,9 +61,6 @@ in {
     skaffold
     istioctl
 
-    # Azure
-    azure-cli
-    azure-storage-azcopy
     # infra
     terraform
     tflint
