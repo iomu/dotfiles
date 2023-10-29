@@ -73,7 +73,7 @@ in {
     lcov
     gettext
     # java
-    jdk11
+    jdk21
     maven
 
     nodejs
