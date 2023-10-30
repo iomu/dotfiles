@@ -76,6 +76,9 @@ in {
     jdk21
     maven
 
+    kotlin
+    ktlint
+
     nodejs
 
     postgresql
