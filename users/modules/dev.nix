@@ -92,5 +92,7 @@ in {
     vegeta
 
     rustup
+
+    jetbrains-toolbox
   ];
 }

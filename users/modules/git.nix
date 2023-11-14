@@ -15,7 +15,7 @@ in {
       st = "status";
       publish =
         "!sh -c 'git push origin HEAD:$(git rev-parse --abbrev-ref HEAD)' -";
-      feature = "!sh -c 'git checkout -b jomü/$1 origin/main' -";
+      feature = "!sh -c 'git checkout -b jomu/$1 origin/main' -";
 
       # commit log
       lg = "lg1";

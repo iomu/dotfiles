@@ -121,10 +121,10 @@
 
       home-common = { lib, ... }: {
         nixpkgs.config.allowUnfreePredicate = pkg:
-          builtins.elem (lib.getName pkg) [ "terraform"];
+          builtins.elem (lib.getName pkg) [ "terraform" "jetbrains-toolbox" ];
 
         programs.home-manager.enable = true;
-        home.stateVersion = "21.05";
+        home.stateVersion = "23.05";
         imports = [
           ./users/common.nix
           (let
