@@ -12,7 +12,6 @@
     ./modules/terminal/kitty.nix
     ./modules/terminal/wezterm.nix
     ./modules/terminal/tmux.nix
-    ./modules/nvim/default.nix
     ./modules/terminal/zsh.nix
   ];
 
@@ -21,8 +20,6 @@
     profileExtra =
       ''export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"'';
   };
-
-  home.packages = [ pkgs.openssh ];
 
   home.sessionPath = let
     gfuzzy = pkgs.fetchFromGitHub {

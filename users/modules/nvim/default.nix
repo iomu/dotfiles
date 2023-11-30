@@ -286,11 +286,9 @@ in {
     extraConfig = ''
       set guifont=Fira\ Code\ Nerd\ Font:h14
       let g:neovide_cursor_animation_length=0
-      lua require("config").setVSCodeLldbPath("${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/")
       lua require("init")
     '';
   };
-  home.packages = [ pkgs.neovide ];
   xdg.configFile = {
     "nvim/lua" = {
       source = ./lua;

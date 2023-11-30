@@ -5,6 +5,8 @@
     nixpkgs-system.url =
       "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
@@ -16,7 +18,7 @@
     dream2nix.url = "github:nix-community/dream2nix";
     helix = {
       url = "github:helix-editor/helix";
-      inputs.nci.follows = "nci";
+      #inputs.nci.follows = "nci";
     };
 
     # awesomewm modules
@@ -112,12 +114,30 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-system, home-manager, helix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-stable-darwin
+    , nixpkgs-system, home-manager, helix, ... }@inputs:
     let
-      extraSpecialArgs = {
-        inherit inputs self;
-        bling = inputs.bling;
-      };
+      localOverlay = prev: final:
+        {
+
+        };
+
+      pkgsForSystem = system:
+         import nixpkgs {
+          overlays = [ localOverlay ];
+          inherit system;
+        };
+
+      mkHomeConfiguration = { system, ... }@args:
+        home-manager.lib.homeManagerConfiguration (rec {
+          pkgs = pkgsForSystem system;
+          extraSpecialArgs = {
+            pkgs-stable = import (if pkgs.stdenv.isDarwin then
+              nixpkgs-stable-darwin
+            else
+              nixpkgs-stable) { inherit system; };
+          };
+        } // builtins.removeAttrs args [ "system" ]);
 
       home-common = { lib, ... }: {
         nixpkgs.config.allowUnfreePredicate = pkg:
@@ -129,7 +149,7 @@
           ./users/common.nix
           (let
             declCachix = builtins.fetchTarball
-              "https://github.com/jonascarpay/declarative-cachix/archive/abe4d70e5d9a225a7ecf98086b089cc04202f2e3.tar.gz";
+              "https://github.com/jonascarpay/declarative-cachix/archive/800c308a85b964eb3447a3cb07e8190fb74dcf59.tar.gz";
           in import "${declCachix}/home-manager.nix")
         ];
 
@@ -158,26 +178,26 @@
         imports = [ ./users/linux.nix ./users/hosts/arch.nix ];
       };
       home-mac = {
-        home.username = "jo";
-        home.homeDirectory = "/Users/jo";
+        home.username = "johannes.mueller";
+        home.homeDirectory = "/Users/johannes.mueller";
         imports = [ ./users/hosts/mac.nix ];
       };
     in {
       homeConfigurations = {
-        nixos = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        nixos = mkHomeConfiguration {
+          system = "x86_64-linux";
           modules = [ home-common home-nixos ];
         };
-        work = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        work = mkHomeConfiguration {
+          system = "x86_64-linux";
           modules = [ home-common home-work ];
         };
-        arch = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        arch = mkHomeConfiguration {
+          system = "x86_64-linux";
           modules = [ home-common home-arch ];
         };
-        mac = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-darwin";
+        mac = mkHomeConfiguration {
+          system = "x86_64-darwin";
           modules = [ home-common home-mac ];
         };
       };

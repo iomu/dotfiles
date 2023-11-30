@@ -4,9 +4,9 @@
     package = inputs.helix.packages."${builtins.currentSystem}".default;
     languages = {
       language = [{
-      name = "rust";
-      auto-format = true;
-    }];
+        name = "rust";
+        auto-format = true;
+      }];
     };
     settings = {
       theme = "catppuccin_mocha";

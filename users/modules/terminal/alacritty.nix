@@ -5,8 +5,8 @@
     settings = {
       font = {
         normal = {
-          family = "Fira Code Nerd Font";
-          style = "Semibold";
+          family = "JetBrainsMonoNL Nerd Font Mono";
+          style = "Bold";
         };
         size = 12;
       };

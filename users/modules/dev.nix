@@ -43,56 +43,51 @@ let
     subPackages = [ "./cmd/earthly" "./cmd/debugger" ];
   };
 in {
-  home.packages = with pkgs; [
-    # docker
-    docker-compose
-    
-    # proto + grpc
-    evans
-    protobuf
+  home.packages = with pkgs;
+    [
+      # docker
+      docker-compose
 
-    gnumake42
-    earthly
+      # proto + grpc
+      evans
+      protobuf
 
-    # kubernetes
-    kubectl
-    kustomize
-    k9s
-    skaffold
-    istioctl
+      gnumake42
+      earthly
 
-    # infra
-    terraform
-    tflint
-    terrascan
-    terraform-docs
-    
-    # go
-    go
+      # kubernetes
+      kubectl
+      kustomize
+      k9s
+      skaffold
+      istioctl
 
-    lcov
-    gettext
-    # java
-    jdk21
-    maven
+      # infra
+      terraform
+      tflint
+      terrascan
+      terraform-docs
 
-    kotlin
-    ktlint
+      # go
+      go
 
-    nodejs
+      lcov
+      gettext
+      # java
+      jdk
+      maven
 
-    postgresql
+      kotlin
+      ktlint
 
-    libtree
+      nodejs
 
-    wrangler
+      postgresql
 
-    yarn
+      yarn
 
-    vegeta
+      vegeta
 
-    rustup
-
-    jetbrains-toolbox
-  ];
+      rustup
+    ] ++ lib.optionals pkgs.stdenv.isLinux [ jetbrains-toolbox libtree ];
 }

@@ -1,11 +1,17 @@
 { config, pkgs, lib, ... }: {
-  programs.fzf.enableZshIntegration = true;
+  programs.atuin.enableZshIntegration = true;
+  programs.skim.enableZshIntegration = true;
   programs.starship.enableZshIntegration = true;
 
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
     autocd = true;
+
+    initExtra = ''
+      HERMIT_ROOT_BIN="''${HERMIT_ROOT_BIN:-"$HOME/bin/hermit"}"
+      eval "$(test -x $HERMIT_ROOT_BIN && $HERMIT_ROOT_BIN shell-hooks --print --zsh)"
+    '';
 
     prezto = {
       enable = true;

@@ -9,10 +9,15 @@ let
   terminal = "${pkgs.alacritty}/bin/alacritty";
 in {
   nix.package = pkgs.nix;
-  nix.settings = { experimental-features = "nix-command flakes"; };
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    trusted-users = "johannes.mueller";
+  };
 
   programs.git.userEmail = "johannes.mueller@freiheit.com";
   home.packages = [ apply-user pkgs.cocoapods ];
 
   home.sessionVariables = { TERMINAL = terminal; };
+
+  home.sessionPath = [ "$HOME/.rd/bin" ];
 }

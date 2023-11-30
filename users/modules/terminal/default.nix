@@ -2,12 +2,14 @@
   home.packages = with pkgs; [
     tree
     fd
+    findutils
     bat
     ripgrep
     tealdeer
     yq-go
     jq
     htop
+    gawk
     glances
     du-dust
     bandwhich
@@ -36,7 +38,24 @@
 
   programs.fzf = { enable = true; };
 
-  programs.starship = { enable = true; };
+  programs.skim = { enable = true; };
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      buf = { disabled = true; };
+      dart = { disabled = true; };
+      docker_context = { disabled = true; };
+      gcloud = { disabled = true; };
+      golang = { disabled = true; };
+      gradle = { disabled = true; };
+      java = { disabled = true; };
+      kotlin = { disabled = true; };
+      package = { disabled = true; };
+      rust = { disabled = true; };
+      terraform = { disabled = true; };
+    };
+  };
 
   programs.eza = {
     enable = true;
@@ -56,7 +75,6 @@
 
   programs.atuin = {
     enable = true;
-    enableZshIntegration = true;
     settings = {
       filter_mode_shell_up_key_binding = "session";
       show_help = false;
