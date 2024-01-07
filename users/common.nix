@@ -21,6 +21,10 @@
       ''export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"'';
   };
 
+  home.sessionVariables = {
+    EDITOR = "${config.programs.helix.package}/bin/hx";
+  };
+
   home.sessionPath = let
     gfuzzy = pkgs.fetchFromGitHub {
       owner = "bigH";

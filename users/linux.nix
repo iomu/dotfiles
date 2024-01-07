@@ -8,8 +8,5 @@
   systemd.user.sessionVariables = {
     EDITOR = "${config.programs.helix.package}/bin/hx";
   };
-  home.sessionVariables = {
-    EDITOR = "${config.programs.helix.package}/bin/hx";
-  };
   home.packages = [ pkgs.xsel pkgs.openssh ];
 }
