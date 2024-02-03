@@ -16,5 +16,5 @@
     };
   };
 
-  home.packages = [pkgs.babelfish];
+  home.packages = [ pkgs.babelfish ];
 }

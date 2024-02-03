@@ -35,13 +35,13 @@
     enable = true;
     nix-direnv.enable = true;
     stdlib = ''
-        layout_hermit() {
-          # Allow for alternate install locations of hermit
-          local hermit_activate_bin="$(find . -name 'activate-hermit')"
-          if [[ ! -z "$hermit_activate_bin" ]];then
-            source "$hermit_activate_bin"
-          fi
-        }
+      layout_hermit() {
+        # Allow for alternate install locations of hermit
+        local hermit_activate_bin="$(find . -name 'activate-hermit')"
+        if [[ ! -z "$hermit_activate_bin" ]];then
+          source "$hermit_activate_bin"
+        fi
+      }
     '';
   };
 

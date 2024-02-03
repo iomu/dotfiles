@@ -22,8 +22,7 @@
       fi
     '';
     # TODO: only if fish is desired shell
-    initExtraFirst = ''
-    '';
+    initExtraFirst = "";
     zprof.enable = false;
 
     prezto = {

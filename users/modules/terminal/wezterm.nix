@@ -1,8 +1,6 @@
 { config, pkgs, pkgs-stable, lib, ... }: {
   programs.wezterm = {
-    enable = !pkgs.stdenv.isDarwin;
-    package =
-      if pkgs.stdenv.isDarwin then pkgs-stable.wezterm else pkgs.wezterm;
+    enable = pkgs.stdenv.system != "x86_64-darwin";
     extraConfig = ''
       local wezterm = require 'wezterm'
       return {

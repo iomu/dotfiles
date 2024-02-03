@@ -12,8 +12,8 @@
         "launch --type=overlay --stdin-source=@screen_scrollback ${pkgs.fzf}/bin/fzf --no-sort --no-mouse --exact -i --tac";
     };
     settings = {
-        scrollback_lines = 10000;
-        window_padding_width = 16;
-     };
+      scrollback_lines = 10000;
+      window_padding_width = 16;
+    };
   };
 }

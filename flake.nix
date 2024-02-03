@@ -5,7 +5,8 @@
     nixpkgs-system.url =
       "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/e922e146779e250fae512da343cfb798c758509d";
+    nixpkgs-stable-darwin.url =
+      "github:nixos/nixpkgs/e922e146779e250fae512da343cfb798c758509d";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -117,16 +118,19 @@
   outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-stable-darwin
     , nixpkgs-system, home-manager, helix, ... }@inputs:
     let
-      localOverlay = prev: final:
-        {
+      inherit (nixpkgs.lib) attrValues makeOverridable optionalAttrs singleton;
+      # Configuration for `nixpkgs`
+      nixpkgsConfig = {
+        config = { allowUnfree = true; };
+        overlays = attrValues self.overlays ++ singleton (
+          # Sub in x86 version of packages that don't build on Apple Silicon yet
+          final: prev:
+          (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
+            inherit (final.pkgs-x86) click;
+          }));
+      };
 
-        };
-
-      pkgsForSystem = system:
-         import nixpkgs {
-          overlays = [ localOverlay ];
-          inherit system;
-        };
+      pkgsForSystem = system: import nixpkgs { inherit system; };
 
       mkHomeConfiguration = { system, ... }@args:
         home-manager.lib.homeManagerConfiguration (rec {
@@ -140,8 +144,7 @@
         } // builtins.removeAttrs args [ "system" ]);
 
       home-common = { lib, ... }: {
-        nixpkgs.config.allowUnfreePredicate = pkg:
-          builtins.elem (lib.getName pkg) [ "terraform" "jetbrains-toolbox" ];
+        nixpkgs = nixpkgsConfig;
 
         programs.home-manager.enable = true;
         home.stateVersion = "23.05";
@@ -182,7 +185,24 @@
         home.homeDirectory = "/Users/johannes.mueller";
         imports = [ ./users/mac.nix ./users/hosts/mac.nix ];
       };
+      home-personal-mac = {
+        home.username = "jo";
+        home.homeDirectory = "/Users/jo";
+        imports = [ ./users/mac.nix ./users/hosts/personal-mac.nix ];
+      };
     in {
+      overlays = {
+        # Overlay useful on Macs with Apple Silicon
+        apple-silicon = final: prev:
+          optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
+            # Add access to x86 packages system is running Apple Silicon
+            pkgs-x86 = import inputs.nixpkgs {
+              system = "x86_64-darwin";
+              config = { allowUnfree = true; };
+            };
+          };
+      };
+
       homeConfigurations = {
         nixos = mkHomeConfiguration {
           system = "x86_64-linux";
@@ -199,6 +219,10 @@
         mac = mkHomeConfiguration {
           system = "x86_64-darwin";
           modules = [ home-common home-mac ];
+        };
+        personal-mac = mkHomeConfiguration {
+          system = "aarch64-darwin";
+          modules = [ home-common home-personal-mac ];
         };
       };
       nixosConfigurations.nixos = nixpkgs-system.lib.nixosSystem {
