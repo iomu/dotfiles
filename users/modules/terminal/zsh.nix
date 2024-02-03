@@ -1,7 +1,11 @@
 { config, pkgs, lib, ... }: {
   programs.atuin.enableZshIntegration = true;
   programs.skim.enableZshIntegration = true;
+  programs.direnv.enableZshIntegration = true;
   programs.starship.enableZshIntegration = true;
+  programs.kitty.shellIntegration.enableZshIntegration = true;
+  programs.wezterm.enableZshIntegration = true;
+  programs.zoxide.enableZshIntegration = true;
 
   programs.zsh = {
     enable = true;
@@ -11,10 +15,19 @@
     initExtra = ''
       HERMIT_ROOT_BIN="''${HERMIT_ROOT_BIN:-"$HOME/bin/hermit"}"
       eval "$(test -x $HERMIT_ROOT_BIN && $HERMIT_ROOT_BIN shell-hooks --print --zsh)"
+
+      if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+        exec ${pkgs.nushell}/bin/nu;
+        exit;
+      fi
     '';
+    # TODO: only if fish is desired shell
+    initExtraFirst = ''
+    '';
+    zprof.enable = false;
 
     prezto = {
-      enable = true;
+      enable = false;
       pmodules = [
         "environment"
         "terminal"

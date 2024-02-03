@@ -1,6 +1,6 @@
 { config, pkgs, pkgs-stable, lib, ... }: {
   programs.wezterm = {
-    enable = true;
+    enable = !pkgs.stdenv.isDarwin;
     package =
       if pkgs.stdenv.isDarwin then pkgs-stable.wezterm else pkgs.wezterm;
     extraConfig = ''

@@ -6,7 +6,7 @@ let
     system = "x86_64-darwin";
     config = { allowUnfree = true; };
   };
-  terminal = "${pkgs.alacritty}/bin/alacritty";
+  terminal = "${pkgs.kitty}/bin/kitty";
 in {
   nix.package = pkgs.nix;
   nix.settings = {
@@ -15,9 +15,9 @@ in {
   };
 
   programs.git.userEmail = "johannes.mueller@freiheit.com";
-  home.packages = [ apply-user pkgs.cocoapods pkgs.rubyPackages.xcodeproj ];
+  home.packages = [ apply-user ];
 
   home.sessionVariables = { TERMINAL = terminal; };
 
-  home.sessionPath = [ "$HOME/.rd/bin" ];
+#  home.sessionPath = [ "$HOME/.rd/bin" ];
 }

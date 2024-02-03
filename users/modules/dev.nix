@@ -47,6 +47,8 @@ in {
       jdk
       maven
 
+      mitmproxy
+
       kotlin
       ktlint
 

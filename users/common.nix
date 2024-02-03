@@ -8,8 +8,10 @@
     ./modules/nix.nix
     ./modules/system-management/index.nix
     ./modules/terminal/default.nix
-    ./modules/terminal/alacritty.nix
+    ./modules/terminal/fish.nix
+    # ./modules/terminal/alacritty.nix
     ./modules/terminal/kitty.nix
+    ./modules/terminal/nu.nix
     ./modules/terminal/wezterm.nix
     ./modules/terminal/tmux.nix
     ./modules/terminal/zsh.nix
@@ -17,8 +19,9 @@
 
   programs.bash = {
     enable = true;
-    profileExtra =
-      ''export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"'';
+    profileExtra = ''
+        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+    '';
   };
 
   home.sessionVariables = {

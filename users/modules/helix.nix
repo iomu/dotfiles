@@ -28,6 +28,7 @@
 
   home.packages = with pkgs; [
     # go
+    go
     gopls
     delve
 

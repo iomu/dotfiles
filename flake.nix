@@ -5,7 +5,7 @@
     nixpkgs-system.url =
       "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/e922e146779e250fae512da343cfb798c758509d";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -180,7 +180,7 @@
       home-mac = {
         home.username = "johannes.mueller";
         home.homeDirectory = "/Users/johannes.mueller";
-        imports = [ ./users/hosts/mac.nix ];
+        imports = [ ./users/mac.nix ./users/hosts/mac.nix ];
       };
     in {
       homeConfigurations = {

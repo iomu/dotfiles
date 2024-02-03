@@ -4,7 +4,7 @@ let
     .local-history
   '';
 in {
-  home.packages = with pkgs; [ git-crypt gh ];
+  home.packages = with pkgs; [ git-crypt gh git-branchless ];
 
   programs.git = {
     enable = true;
@@ -28,6 +28,20 @@ in {
         "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'";
       lg3-specific =
         "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'";
+
+      # branchless
+      sync = "branchless sync";
+      sl = "branchless smartlog";
+      record = "branchless record";
+      undo = "branchless undo";
+      prev = "branchless prev";
+      next = "branchless next";
+      submit = "branchless submit";
+      sw = "branchless switch";
+      restack = "branchless restack";
+      amend = "branchless amend";
+      reword = "branchless reword";
+      move = "branchless move";
     };
     delta.enable = true;
 

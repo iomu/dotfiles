@@ -34,6 +34,15 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+    stdlib = ''
+        layout_hermit() {
+          # Allow for alternate install locations of hermit
+          local hermit_activate_bin="$(find . -name 'activate-hermit')"
+          if [[ ! -z "$hermit_activate_bin" ]];then
+            source "$hermit_activate_bin"
+          fi
+        }
+    '';
   };
 
   programs.fzf = { enable = true; };
@@ -59,7 +68,7 @@
 
   programs.eza = {
     enable = true;
-    enableAliases = true;
+    enableAliases = !config.programs.nushell.enable;
   };
 
   # z
@@ -78,6 +87,10 @@
     settings = {
       filter_mode_shell_up_key_binding = "session";
       show_help = false;
+      workspaces = true;
     };
   };
+
+  # generic completions
+  programs.carapace.enable = true;
 }
