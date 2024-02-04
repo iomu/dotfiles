@@ -36,7 +36,7 @@
       }
 
       let carapace_completer = {|spans: list<string>|
-          ${pkgs.carapace}/bin/carapace $spans.0 nushell $spans
+          ${pkgs.carapace}/bin/carapace $spans.0 nushell ...$spans
           | from json
           | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
       }
