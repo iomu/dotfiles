@@ -128,7 +128,11 @@
           final: prev:
           (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
             inherit (final.pkgs-x86) click;
-          }));
+          })) ++ singleton (
+            final: prev:
+            (optionalAttrs (prev.stdenv.system == "x86_64-darwin") {
+              inherit (final.pkgs-wezterm) wezterm;
+            }));
       };
 
       pkgsForSystem = system: import nixpkgs { inherit system; };
@@ -205,8 +209,8 @@
 
         wezterm = final: prev:
           optionalAttrs (prev.stdenv.system == "x86_64-darwin") {
-            # Add access to x86 packages system is running Apple Silicon
-            wezterm = inputs.nixpkgs-wezterm-fix.wezterm;
+            pkgs-wezterm =
+              import inputs.nixpkgs-wezterm-fix { system = "x86_64-darwin"; };
           };
       };
 
