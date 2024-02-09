@@ -15,13 +15,7 @@
     initExtra = ''
       HERMIT_ROOT_BIN="''${HERMIT_ROOT_BIN:-"$HOME/bin/hermit"}"
       eval "$(test -x $HERMIT_ROOT_BIN && $HERMIT_ROOT_BIN shell-hooks --print --zsh)"
-
-      if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
-        exec ${pkgs.nushell}/bin/nu;
-        exit;
-      fi
     '';
-    # TODO: only if fish is desired shell
     initExtraFirst = "";
     zprof.enable = false;
 

@@ -327,6 +327,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-wezterm-fix": {
+      "locked": {
+        "lastModified": 1706211242,
+        "narHash": "sha256-XCPNNweQvqqyuFT6F9K4cw7+nizsem0qQogoBHT4hGg=",
+        "owner": "cpick",
+        "repo": "nixpkgs",
+        "rev": "5d6d7d8255cb48720b5d5db59fb7a95db8d13220",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cpick",
+        "ref": "fix-wezterm",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1700794826,
@@ -738,6 +754,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-stable-darwin": "nixpkgs-stable-darwin",
         "nixpkgs-system": "nixpkgs-system",
+        "nixpkgs-wezterm-fix": "nixpkgs-wezterm-fix",
         "nvim-auto-save-src": "nvim-auto-save-src",
         "nvim-dap-go-src": "nvim-dap-go-src",
         "nvim-dirbuf-src": "nvim-dirbuf-src",

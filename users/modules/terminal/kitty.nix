@@ -14,6 +14,7 @@
     settings = {
       scrollback_lines = 10000;
       window_padding_width = 16;
+      shell = "${pkgs.zsh}/bin/zsh -i -l -c ${pkgs.fish}/bin/fish";
     };
   };
 }

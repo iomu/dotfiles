@@ -8,6 +8,7 @@
     nixpkgs-stable-darwin.url =
       "github:nixos/nixpkgs/e922e146779e250fae512da343cfb798c758509d";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-wezterm-fix.url = "github:cpick/nixpkgs/fix-wezterm";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
@@ -200,6 +201,12 @@
               system = "x86_64-darwin";
               config = { allowUnfree = true; };
             };
+          };
+
+        wezterm = final: prev:
+          optionalAttrs (prev.stdenv.system == "x86_64-darwin") {
+            # Add access to x86 packages system is running Apple Silicon
+            wezterm = inputs.nixpkgs-wezterm-fix.wezterm;
           };
       };
 

@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  apply-user = pkgs.writeScriptBin "apply-user"
-    "${builtins.readFile ../modules/system-management/apply-user-personal-mac.sh}";
+  apply-user = pkgs.writeScriptBin "apply-user" "${builtins.readFile
+    ../modules/system-management/apply-user-personal-mac.sh}";
   terminal = "${pkgs.kitty}/bin/kitty";
 in {
   nix.package = pkgs.nix;
