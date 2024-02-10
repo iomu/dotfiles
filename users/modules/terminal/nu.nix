@@ -32,7 +32,7 @@
       }
 
       let zoxide_completer = {|spans|
-          $spans | skip 1 | ${pkgs.zoxide}/bin/zoxide query -l $in | lines | where {|x| $x != $env.PWD}
+          $spans | skip 1 | ${pkgs.zoxide}/bin/zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
       }
 
       let carapace_completer = {|spans: list<string>|
