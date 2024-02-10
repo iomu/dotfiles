@@ -1,4 +1,6 @@
 { config, pkgs, lib, ... }: {
+  home.homeDirectory = "/home/${config.custom.user}";
+
   imports = [ ./modules/keyboard.nix ./modules/desktop/default.nix ];
 
   targets.genericLinux.enable = true;

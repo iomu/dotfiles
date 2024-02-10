@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: {
   programs.alacritty = {
-    enable = true;
+    enable = config.custom.enableAlacritty;
     # default config: https://github.com/jwilm/alacritty/blob/master/alacritty.yml
     settings = {
       font = {

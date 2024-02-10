@@ -9,6 +9,7 @@ in {
   programs.git = {
     enable = true;
     userName = "Johannes Müller";
+    userEmail = config.custom.git.userEmail;
     aliases = {
       co = "checkout";
       ri = "rebase --interactive";

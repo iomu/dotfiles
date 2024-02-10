@@ -23,11 +23,6 @@
       #inputs.nci.follows = "nci";
     };
 
-    # awesomewm modules
-    bling = {
-      url = "github:BlingCorp/bling";
-      flake = false;
-    };
     evans = {
       url = "github:ktr0731/evans/v0.10.9";
       flake = false;
@@ -128,8 +123,7 @@
           final: prev:
           (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
             inherit (final.pkgs-x86) click;
-          })) ++ singleton (
-            final: prev:
+          })) ++ singleton (final: prev:
             (optionalAttrs (prev.stdenv.system == "x86_64-darwin") {
               inherit (final.pkgs-wezterm) wezterm;
             }));
@@ -145,10 +139,11 @@
               nixpkgs-stable-darwin
             else
               nixpkgs-stable) { inherit system; };
+            inputs = inputs;
           };
         } // builtins.removeAttrs args [ "system" ]);
 
-      home-common = { lib, ... }: {
+      home-common = { lib, config, ... }: {
         nixpkgs = nixpkgsConfig;
 
         programs.home-manager.enable = true;
@@ -161,38 +156,15 @@
           in import "${declCachix}/home-manager.nix")
         ];
 
-        _module.args = {
-          inherit inputs self;
-          bling = inputs.bling;
-        };
-
         caches.cachix = [ "helix" "nix-community" ];
       };
 
-      home-nixos = {
-        home.username = "jo";
-        home.homeDirectory = "/home/jo";
-        imports = [ ./users/hosts/desktop.nix ];
-      };
-      home-work = {
-        home.username = "jo";
-        home.homeDirectory = "/home/jo";
-        imports = [ ./users/linux.nix ./users/hosts/work.nix ];
-      };
+      home-nixos = { imports = [ ./users/hosts/desktop.nix ]; };
+      home-work = { imports = [ ./users/linux.nix ./users/hosts/work.nix ]; };
 
-      home-arch = {
-        home.username = "jo";
-        home.homeDirectory = "/home/jo";
-        imports = [ ./users/linux.nix ./users/hosts/arch.nix ];
-      };
-      home-mac = {
-        home.username = "johannes.mueller";
-        home.homeDirectory = "/Users/johannes.mueller";
-        imports = [ ./users/mac.nix ./users/hosts/mac.nix ];
-      };
+      home-arch = { imports = [ ./users/linux.nix ./users/hosts/arch.nix ]; };
+      home-mac = { imports = [ ./users/mac.nix ./users/hosts/mac.nix ]; };
       home-personal-mac = {
-        home.username = "jo";
-        home.homeDirectory = "/Users/jo";
         imports = [ ./users/mac.nix ./users/hosts/personal-mac.nix ];
       };
     in {

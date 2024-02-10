@@ -4,6 +4,7 @@
   xsession.windowManager.i3 = {
     enable = true;
     config = {
+      terminal = config.custom.terminal;
       modifier = "Mod4";
       menu = ''"rofi -modi 'window,drun,run' -show drun -display-drun 'open'"'';
       keybindings =

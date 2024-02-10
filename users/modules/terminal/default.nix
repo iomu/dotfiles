@@ -1,4 +1,13 @@
 { config, pkgs, lib, ... }: {
+  custom.shellAliases = {
+    scrcpy = "ADB=$HOME/Android/Sdk/platform-tools/adb scrcpy";
+    gs = "git status";
+    cd = "z";
+    l = "ls -l";
+    la = "ls -a";
+    lla = "ls -la";
+  };
+
   home.packages = with pkgs; [
     tree
     fd
@@ -93,4 +102,6 @@
 
   # generic completions
   programs.carapace.enable = true;
+
+  home.sessionVariables = { TERMINAL = config.custom.terminal; };
 }

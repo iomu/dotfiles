@@ -1,24 +1,20 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  apply-user = pkgs.writeScriptBin "apply-user"
-    "${builtins.readFile ../modules/system-management/apply-user-arch.sh}";
   pkgs = import inputs.nixpkgs {
     system = "x86_64-linux";
     overlays = [ inputs.nixgl.overlay ];
     config = { allowUnfree = true; };
   };
-  terminal =
-    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.wezterm}/bin/wezterm";
+
 in {
+  custom = {
+    system = "arch";
+    terminal =
+      "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.wezterm}/bin/wezterm";
+  };
   imports = [ ../modules/desktop/wm/i3.nix ];
 
-  nix.package = pkgs.nix;
-  nix.settings = { experimental-features = [ "nix-command" "flakes" ]; };
-
-  programs.git.userEmail = "muellerjohannes23@gmail.com";
-  home.packages = [ apply-user pkgs.nixgl.auto.nixGLDefault pkgs.texlab ];
-
-  home.sessionVariables = { TERMINAL = terminal; };
+  home.packages = [ pkgs.nixgl.auto.nixGLDefault pkgs.texlab ];
 
   home.sessionPath = [
     "/usr/local/sbin"
@@ -35,8 +31,6 @@ in {
   };
 
   services.gnome-keyring.enable = true;
-
-  xsession.windowManager.i3.config.terminal = terminal;
 
   programs.autorandr = {
     enable = true;

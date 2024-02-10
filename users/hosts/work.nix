@@ -1,14 +1,10 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  apply-user = pkgs.writeScriptBin "apply-user"
-    "${builtins.readFile ../modules/system-management/apply-user-work.sh}";
   pkgs = import inputs.nixpkgs {
     system = "x86_64-linux";
     overlays = [ inputs.nixgl.overlay ];
     config = { allowUnfree = true; };
   };
-  terminal =
-    "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.wezterm}/bin/wezterm";
 
   kafkactl = pkgs.buildGoModule rec {
     pname = "kafkactl";
@@ -22,14 +18,22 @@ let
     subPackages = [ "." ];
   };
 in {
+  custom = {
+    system = "work";
+    terminal =
+      "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.wezterm}/bin/wezterm";
+    git.userEmail = "johannes.mueller@freiheit.com";
+
+    shellAliases = {
+      cbtd = "cbt -project product-backbone-dev-f3fa825d";
+      cbti = "cbt -project product-backbone-int-146e978d";
+      cbtp = "cbt -project product-backbone-prd-5aacabc8";
+    };
+  };
+
   imports = [ ../modules/desktop/wm/i3.nix ];
 
-  nix.package = pkgs.nix;
-  nix.settings = { experimental-features = "nix-command flakes"; };
-
-  programs.git.userEmail = "johannes.mueller@freiheit.com";
   home.packages = [
-    apply-user
     pkgs.pavucontrol
     pkgs.nixgl.nixGLIntel
     pkgs.nixgl.auto.nixGLNvidia
@@ -39,14 +43,6 @@ in {
     pkgs.graphviz
     pkgs.pre-commit
   ];
-
-  home.sessionVariables = { TERMINAL = terminal; };
-
-  programs.zsh.shellAliases = {
-    cbtd = "cbt -project product-backbone-dev-f3fa825d";
-    cbti = "cbt -project product-backbone-int-146e978d";
-    cbtp = "cbt -project product-backbone-prd-5aacabc8";
-  };
 
   home.sessionPath = [
     "/usr/local/sbin"

@@ -5,6 +5,8 @@ let
   '';
 in {
 
+  home.homeDirectory = "/Users/${config.custom.user}";
+
   home.packages = [
     pkgs.colima
     pkgs.cocoapods

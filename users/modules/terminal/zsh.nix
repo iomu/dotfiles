@@ -36,11 +36,7 @@
       ];
     };
 
-    shellAliases = {
-      scrcpy = "ADB=$HOME/Android/Sdk/platform-tools/adb scrcpy";
-      gs = "git status";
-      cd = "z";
-    };
+    shellAliases = config.custom.shellAliases;
 
     plugins = [{
       name = "zsh-nix-shell";

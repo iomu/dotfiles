@@ -5,4 +5,11 @@ let
     nix-store --query --requisites $(which $dep)
   '';
 
-in { home.packages = with pkgs; [ nixfmt depends nix-prefetch-github ]; }
+in {
+  home.packages = with pkgs; [ nixfmt depends nix-prefetch-github ];
+  nix.package = pkgs.nix;
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    trusted-users = config.custom.user;
+  };
+}

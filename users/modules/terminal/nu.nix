@@ -72,13 +72,6 @@
       )
     '';
 
-    shellAliases = {
-      scrcpy = "ADB=$HOME/Android/Sdk/platform-tools/adb scrcpy";
-      gs = "git status";
-      cd = "z";
-      l = "ls -l";
-      la = "ls -a";
-      lla = "ls -la";
-    };
+    shellAliases = config.custom.shellAliases;
   };
 }

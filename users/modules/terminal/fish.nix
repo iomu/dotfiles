@@ -10,10 +10,7 @@
 
     # TODO hermit
 
-    shellAliases = {
-      scrcpy = "ADB=$HOME/Android/Sdk/platform-tools/adb scrcpy";
-      gs = "git status";
-    };
+    shellAliases = config.custom.shellAliases;
   };
 
   home.packages = [ pkgs.babelfish ];

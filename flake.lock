@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "bling": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1693755268,
-        "narHash": "sha256-0D2ck1qiA1ydLax45utJw1RhZZwhqg4KRoqgDFz4Gsg=",
-        "owner": "BlingCorp",
-        "repo": "bling",
-        "rev": "1f6bd0d5ef150a1801d20c69437ceff61d65fac5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "BlingCorp",
-        "repo": "bling",
-        "type": "github"
-      }
-    },
     "crane": {
       "inputs": {
         "nixpkgs": [
@@ -741,7 +725,6 @@
     },
     "root": {
       "inputs": {
-        "bling": "bling",
         "dream2nix": "dream2nix",
         "earthly": "earthly",
         "evans": "evans",
