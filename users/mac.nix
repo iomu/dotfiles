@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, pkgs-stable, lib, ... }:
 let
   colima-docker = pkgs.writeScriptBin "cdocker" ''
     ${pkgs.colima}/bin/colima nerdctl -- $@
@@ -9,7 +9,7 @@ in {
 
   home.packages = [
     pkgs.colima
-    pkgs.cocoapods
+    pkgs-stable.cocoapods
     pkgs.rubyPackages.xcodeproj
     colima-docker
     pkgs.docker-client
