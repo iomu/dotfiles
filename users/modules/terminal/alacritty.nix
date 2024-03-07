@@ -8,7 +8,11 @@
           family = "JetBrainsMonoNL Nerd Font Mono";
           style = "Bold";
         };
-        size = 12;
+        size = 16;
+      };
+      shell = {
+        program = "${pkgs.zsh}/bin/zsh";
+        args = ["-i" "-l" "-c" (lib.getExe config.custom.shell)];
       };
       #      colors = {
       #        primary = {
