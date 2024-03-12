@@ -20,5 +20,10 @@ in {
   home.sessionVariables = {
     DOCKER_HOST =
       "unix://${config.home.homeDirectory}/.colima/default/docker.sock";
+      ANDROID_HOME = "${config.home.homeDirectory}/Library/Android/sdk";
   };
+
+  home.sessionPath = [
+    "${config.home.homeDirectory}/Library/Android/sdk/platform-tools"
+  ];
 }
