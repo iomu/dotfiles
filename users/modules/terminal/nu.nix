@@ -10,7 +10,7 @@
     extraConfig = lib.mkAfter ''
       # See https://github.com/atuinsh/atuin/issues/1025 for details
       $env.config = ($env | default {} config).config
-      $env.config.show_banner = false
+      $env.config.show_banner = true
       $env.config = ($env.config | default [] keybindings)
       $env.config = (
        $env.config | upsert keybindings (

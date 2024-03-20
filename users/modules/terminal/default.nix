@@ -77,7 +77,6 @@
 
   programs.eza = {
     enable = true;
-    enableAliases = !config.programs.nushell.enable;
   };
 
   # z

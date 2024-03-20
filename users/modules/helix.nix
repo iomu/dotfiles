@@ -35,9 +35,6 @@
     # rust
     # rust-analyzer
 
-    # Nix
-    rnix-lsp
-
     # bash
     nodePackages.bash-language-server
 

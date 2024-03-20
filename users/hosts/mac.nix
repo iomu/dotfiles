@@ -6,4 +6,6 @@
     user = "johannes.mueller";
     git.userEmail = "johannes.mueller@freiheit.com";
   };
+
+  home.packages = [pkgs.azure-cli];
 }

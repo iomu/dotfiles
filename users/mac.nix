@@ -9,7 +9,7 @@ in {
 
   home.packages = [
     pkgs.colima
-    pkgs-stable.cocoapods
+    pkgs.cocoapods
     pkgs.rubyPackages.xcodeproj
     colima-docker
     pkgs.docker-client

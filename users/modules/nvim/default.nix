@@ -259,7 +259,6 @@ in {
       pandoc
 
       # Nix
-      rnix-lsp
       deadnix
       statix
 
