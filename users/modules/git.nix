@@ -51,6 +51,11 @@ in {
         editor = "${config.programs.helix.package}/bin/hx";
         excludesFile = "${globalGitIgnore}";
       };
+      url = {
+        "git@ssh.dev.azure.com:v3/schwarzit/schwarzit.stackit-public/stackit-api" = {
+          insteadOf = "https://dev.azure.com/schwarzit/schwarzit.stackit-public/stackit-api";
+        };
+      };
     };
   };
 }
