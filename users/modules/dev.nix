@@ -21,8 +21,8 @@ in {
       evans
       protobuf
 
-      bruno 
-      
+      bruno
+
       gnumake42
 
       # kubernetes
@@ -48,6 +48,7 @@ in {
       # java
       jdk
       maven
+      nixd
 
       kotlin
       ktlint
@@ -61,5 +62,7 @@ in {
       vegeta
 
       rustup
+
+      zola
     ] ++ lib.optionals pkgs.stdenv.isLinux [ jetbrains-toolbox libtree ];
 }

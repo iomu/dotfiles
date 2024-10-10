@@ -1,10 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, pkgs-stable, lib, ... }:
 let
   globalGitIgnore = pkgs.writeText ".gitignore_global" ''
     .local-history
   '';
 in {
-  home.packages = with pkgs; [ git-crypt gh git-branchless ];
+  home.packages = with pkgs; [ git-crypt gh pkgs-stable.git-branchless ];
 
   programs.git = {
     enable = true;
