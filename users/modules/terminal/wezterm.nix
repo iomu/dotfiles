@@ -12,6 +12,7 @@
         enable_scroll_bar = true,
         max_fps = 120,
         window_decorations = 'INTEGRATED_BUTTONS|RESIZE',
+        front_end = "WebGpu",
         default_prog = { "${pkgs.zsh}/bin/zsh", "-i", "-l", "-c", "${
           lib.getExe config.custom.shell
         }" },
