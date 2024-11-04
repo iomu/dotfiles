@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: {
   programs.wezterm = {
-    enable = true;
+    enable = config.custom.enableAlacritty;
     extraConfig = ''
       local wezterm = require 'wezterm'
       return {

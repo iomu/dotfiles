@@ -55,6 +55,13 @@ in {
           Whether to enable alacritty.
         '';
       };
+
+      enableWezterm = mkOption {
+          default = true;
+          description = ''
+            Whether to enable wezterm.
+          '';
+        };
     };
   };
 }
