@@ -9,5 +9,5 @@
     terminal = lib.getExe pkgs.kitty;
   };
 
-  home.packages = [pkgs.azure-cli];
+  home.packages = [ pkgs.graphviz ];
 }
