@@ -3,8 +3,9 @@
   home.packages = with pkgs; [
     font-awesome
     dejavu_fonts
-    (nerdfonts.override {
-      fonts = [ "FiraCode" "FiraMono" "JetBrainsMono" "DejaVuSansMono" ];
-    })
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.dejavu-sans-mono
   ];
 }

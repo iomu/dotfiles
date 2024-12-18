@@ -43,5 +43,8 @@
 
     # Make
     cmake-language-server
+
+    # Nix language server
+    nil
   ];
 }

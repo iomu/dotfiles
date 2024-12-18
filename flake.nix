@@ -5,10 +5,9 @@
     nixpkgs-system.url =
       "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable-darwin.url =
-      "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-wezterm-fix.url = "github:cpick/nixpkgs/fix-wezterm";
+    #nixpkgs-wezterm-fix.url = "github:cpick/nixpkgs/fix-wezterm";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
@@ -123,10 +122,7 @@
           final: prev:
           (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
             inherit (final.pkgs-x86) click;
-          })) ++ singleton (final: prev:
-            (optionalAttrs (prev.stdenv.system == "x86_64-darwin") {
-              inherit (final.pkgs-wezterm) wezterm;
-            }));
+          }));
       };
 
       pkgsForSystem = system: import nixpkgs { inherit system; };
