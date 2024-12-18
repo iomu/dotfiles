@@ -18,7 +18,7 @@ in {
         description = "user name";
       };
 
-      shell = mkPackageOption pkgs "nushell" { };
+      shell = mkPackageOption pkgs "fish" { };
 
       terminal = mkOption {
         default = lib.getExe pkgs.wezterm;
@@ -57,11 +57,11 @@ in {
       };
 
       enableWezterm = mkOption {
-          default = true;
-          description = ''
-            Whether to enable wezterm.
-          '';
-        };
+        default = true;
+        description = ''
+          Whether to enable wezterm.
+        '';
+      };
     };
   };
 }

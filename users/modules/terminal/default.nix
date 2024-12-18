@@ -72,12 +72,32 @@
       package = { disabled = true; };
       rust = { disabled = true; };
       terraform = { disabled = true; };
+      fill = {
+        symbol = "─";
+        style = "white";
+      };
+
+      time = {
+        disabled = false;
+        use_12hr = false;
+      };
+
+      cmd_duration = {
+        min_time = 0;
+        show_milliseconds = true;
+      };
+
+      directory = { fish_style_pwd_dir_length = 1; };
+
+      git_commit = { only_detached = false; };
+
+      format = ''
+        $directory$git_branch$git_commit$fill $cmd_duration$time$line_break$jobs$status$character
+      '';
     };
   };
 
-  programs.eza = {
-    enable = true;
-  };
+  programs.eza = { enable = true; };
 
   # z
   programs.zoxide = { enable = true; };

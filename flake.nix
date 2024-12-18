@@ -200,7 +200,7 @@
           modules = [ home-common home-arch ];
         };
         mac = mkHomeConfiguration {
-          system = "x86_64-darwin";
+          system = "aarch64-darwin";
           modules = [ home-common home-mac ];
         };
         personal-mac = mkHomeConfiguration {
