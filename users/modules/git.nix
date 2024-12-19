@@ -4,7 +4,7 @@ let
     .local-history
   '';
 in {
-  home.packages = with pkgs; [ git-crypt gh git-branchless ];
+  home.packages = with pkgs; [ git-crypt gh git-branchless lazygit gitui ];
 
   programs.git = {
     enable = true;

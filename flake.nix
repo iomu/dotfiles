@@ -5,8 +5,8 @@
     nixpkgs-system.url =
       "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     #nixpkgs-wezterm-fix.url = "github:cpick/nixpkgs/fix-wezterm";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
