@@ -4,7 +4,7 @@ let
     .local-history
   '';
 in {
-  home.packages = with pkgs; [ git-crypt gh pkgs-stable.git-branchless ];
+  home.packages = with pkgs; [ git-crypt gh git-branchless ];
 
   programs.git = {
     enable = true;
