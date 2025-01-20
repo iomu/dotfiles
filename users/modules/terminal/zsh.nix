@@ -3,6 +3,7 @@
   programs.skim.enableZshIntegration = true;
   programs.direnv.enableZshIntegration = true;
   programs.starship.enableZshIntegration = true;
+  programs.ghostty.enableZshIntegration = true;
   programs.kitty.shellIntegration.enableZshIntegration = true;
   programs.wezterm.enableZshIntegration = true;
   programs.zoxide.enableZshIntegration = true;

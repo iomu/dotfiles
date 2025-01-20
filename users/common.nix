@@ -12,6 +12,7 @@
     ./modules/terminal/default.nix
     ./modules/terminal/fish.nix
     ./modules/terminal/alacritty.nix
+    ./modules/terminal/ghostty.nix
     ./modules/terminal/kitty.nix
     ./modules/terminal/nu.nix
     ./modules/terminal/wezterm.nix

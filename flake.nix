@@ -180,6 +180,10 @@
             pkgs-wezterm =
               import inputs.nixpkgs-wezterm-fix { system = "x86_64-darwin"; };
           };
+
+        packages = final: prev: {
+          ghostty = final.callPackage ./pkgs/ghostty.nix { };
+        };
       };
 
       homeConfigurations = {
