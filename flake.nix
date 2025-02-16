@@ -7,20 +7,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    #nixpkgs-wezterm-fix.url = "github:cpick/nixpkgs/fix-wezterm";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
-    nci = {
-      url = "github:yusdacra/nix-cargo-integration";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dream2nix.follows = "dream2nix";
-    };
-    dream2nix.url = "github:nix-community/dream2nix";
-    helix = {
-      url = "github:helix-editor/helix";
-      #inputs.nci.follows = "nci";
-    };
 
     evans = {
       url = "github:ktr0731/evans/v0.10.9";
@@ -35,83 +24,10 @@
       url = "github:deviceinsight/kafkactl/v2.3.0";
       flake = false;
     };
-
-    nvim-surround-src = {
-      url = "github:kylechui/nvim-surround";
-      flake = false;
-    };
-    nvim-tundra-src = {
-      url = "github:sam4llis/nvim-tundra";
-      flake = false;
-    };
-    nvim-which-key-src = {
-      url = "github:folke/which-key.nvim";
-      flake = false;
-    };
-    nvim-tokyonight-src = {
-      url = "github:folke/tokyonight.nvim";
-      flake = false;
-    };
-    nvim-lspsaga-src = {
-      url = "github:glepnir/lspsaga.nvim";
-      flake = false;
-    };
-    nvim-auto-save-src = {
-      url = "github:PolSust/auto-save.nvim/allow_noautocmd_autosaving";
-      flake = false;
-    };
-    nvim-local-history-src = {
-      url = "github:dinhhuy258/vim-local-history";
-      flake = false;
-    };
-    nvim-ts-context-commentstring-src = {
-      url = "github:JoosepAlviste/nvim-ts-context-commentstring";
-      flake = false;
-    };
-    nvim-tree-climber-src = {
-      url = "github:drybalka/tree-climber.nvim";
-      flake = false;
-    };
-    nvim-telescope-fzf-native-src = {
-      url = "github:nvim-telescope/telescope-fzf-native.nvim";
-      flake = false;
-    };
-    nvim-noice-src = {
-      url = "github:folke/noice.nvim";
-      flake = false;
-    };
-    nvim-dirbuf-src = {
-      url = "github:elihunter173/dirbuf.nvim";
-      flake = false;
-    };
-    nvim-dap-go-src = {
-      url = "github:leoluz/nvim-dap-go";
-      flake = false;
-    };
-    nvim-neotest-go-src = {
-      url = "github:nvim-neotest/neotest-go";
-      flake = false;
-    };
-    nvim-neotest-rust-src = {
-      url = "github:rouge8/neotest-rust";
-      flake = false;
-    };
-    nvim-null-ls-fork-src = {
-      url = "github:iomu/null-ls.nvim";
-      flake = false;
-    };
-    nvim-rust-tools-src = {
-      url = "github:simrat39/rust-tools.nvim";
-      flake = false;
-    };
-    nvim-tabout-src = {
-      url = "github:abecodes/tabout.nvim";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-stable-darwin
-    , nixpkgs-system, home-manager, helix, ... }@inputs:
+    , nixpkgs-system, home-manager, ... }@inputs:
     let
       inherit (nixpkgs.lib) attrValues makeOverridable optionalAttrs singleton;
       # Configuration for `nixpkgs`
@@ -152,7 +68,7 @@
           in import "${declCachix}/home-manager.nix")
         ];
 
-        caches.cachix = [ "helix" "nix-community" ];
+        caches.cachix = [ "nix-community" ];
       };
 
       home-nixos = { imports = [ ./users/hosts/desktop.nix ]; };
