@@ -18,6 +18,8 @@ in {
     pkgs.streamlink
   ];
 
+  imports = [ ./modules/aerospace.nix ];
+
   home.sessionVariables = {
     DOCKER_HOST =
       "unix://${config.home.homeDirectory}/.colima/default/docker.sock";

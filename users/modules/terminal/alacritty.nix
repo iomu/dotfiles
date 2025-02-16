@@ -12,7 +12,7 @@
       };
       shell = {
         program = "${pkgs.zsh}/bin/zsh";
-        args = ["-i" "-l" "-c" (lib.getExe config.custom.shell)];
+        args = [ "-i" "-l" "-c" (lib.getExe config.custom.shell) ];
       };
       #      colors = {
       #        primary = {
