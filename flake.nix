@@ -11,6 +11,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
 
+    fenix = {
+        url = "github:nix-community/fenix";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     evans = {
       url = "github:ktr0731/evans/v0.10.9";
       flake = false;
@@ -27,7 +32,7 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-stable-darwin
-    , nixpkgs-system, home-manager, ... }@inputs:
+    , nixpkgs-system, home-manager,  fenix, ... }@inputs:
     let
       inherit (nixpkgs.lib) attrValues makeOverridable optionalAttrs singleton;
       # Configuration for `nixpkgs`
@@ -90,6 +95,8 @@
               config = { allowUnfree = true; };
             };
           };
+
+        fenix = fenix.overlays.default;
 
         wezterm = final: prev:
           optionalAttrs (prev.stdenv.system == "x86_64-darwin") {

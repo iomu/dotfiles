@@ -47,7 +47,6 @@
     "$HOME/.pub-cache/bin"
     "$HOME/go/bin"
     "$HOME/Android/Sdk/platform-tools"
-    "$HOME/.cargo/bin"
     "${gfuzzy}/bin"
   ];
 }
