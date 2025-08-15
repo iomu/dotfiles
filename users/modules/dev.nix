@@ -61,14 +61,16 @@ in {
 
       vegeta
 
-      (fenix.complete.withComponents [
-        "cargo"
-        "clippy"
-        "rust-src"
-        "rustc"
-        "rustfmt"
-      ])
-      rust-analyzer-nightly
+      rustup
+
+      #(fenix.complete.withComponents [
+      #  "cargo"
+      #  "clippy"
+      #  "rust-src"
+      #  "rustc"
+      #  "rustfmt"
+      #])
+     # rust-analyzer-nightly
 
       zola
     ] ++ lib.optionals pkgs.stdenv.isLinux [ jetbrains-toolbox libtree ];

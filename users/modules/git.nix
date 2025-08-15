@@ -86,6 +86,11 @@ in {
             insteadOf =
               "https://dev.azure.com/schwarzit/schwarzit.stackit-public/stackit-api";
           };
+        "git@ssh.dev.azure.com:v3/schwarzit/schwarzit.stackit-public" =
+          {
+            insteadOf =
+              "https://dev.azure.com/schwarzit/schwarzit.stackit-public";
+          };
       };
     };
   };
