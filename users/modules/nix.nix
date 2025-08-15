@@ -6,7 +6,7 @@ let
   '';
 
 in {
-  home.packages = with pkgs; [ nixfmt depends nix-prefetch-github ];
+  home.packages = with pkgs; [ nix nixfmt depends nix-prefetch-github ];
   nix.package = pkgs.nix;
   nix.settings = {
     experimental-features = "nix-command flakes";

@@ -2,14 +2,15 @@
   description = "Dotfiles";
 
   inputs = {
-    nixpkgs-system.url =
-      "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
+    nixgl.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-system.url =
+      "github:nixos/nixpkgs/5aaed40d22f0d9376330b6fa413223435ad6fee5";
 
     fenix = {
         url = "github:nix-community/fenix";
