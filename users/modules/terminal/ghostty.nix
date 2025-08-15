@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }: {
   programs.ghostty = {
     enable = true;
+    package = pkgs.ghostty-bin;
 
     settings = {
       font-family = "JetBrainsMonoNL Nerd Font Mono";

@@ -105,7 +105,6 @@
           };
 
         packages = final: prev: {
-          ghostty = final.callPackage ./pkgs/ghostty.nix { };
         };
       };
 
