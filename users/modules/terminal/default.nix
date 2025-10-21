@@ -38,6 +38,8 @@
     fx
     # hex viewer
     hexyl
+
+    _1password-cli
   ];
 
   programs.direnv = {
