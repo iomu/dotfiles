@@ -19,7 +19,7 @@ in {
         name = "Johannes Müller";
         email = config.custom.git.userEmail;
       };
-      aliases = {
+      alias = {
         co = "checkout";
         ri = "rebase --interactive";
         st = "status";
@@ -53,9 +53,7 @@ in {
         reword = "branchless reword";
         move = "branchless move";
       };
-    };
 
-    extraConfig = {
       core = {
         editor = "${config.programs.helix.package}/bin/hx";
         excludesFile = "${globalGitIgnore}";
