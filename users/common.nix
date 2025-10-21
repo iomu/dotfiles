@@ -22,7 +22,7 @@
   ];
 
   programs.bash = {
-    enable = true;
+    enable = false;
     profileExtra = ''
       export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
     '';

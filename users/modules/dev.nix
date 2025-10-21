@@ -21,8 +21,6 @@ in {
       evans
       protobuf
 
-      bruno
-
       gnumake42
 
       # kubernetes
