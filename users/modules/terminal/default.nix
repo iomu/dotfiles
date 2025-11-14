@@ -20,7 +20,7 @@
     htop
     gawk
     glances
-    du-dust
+    dust
     bandwhich
     # count code
     tokei
