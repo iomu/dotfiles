@@ -20,6 +20,8 @@ in {
 
       shell = mkPackageOption pkgs "fish" { };
 
+      ghostty = mkPackageOption pkgs "ghostty" {};
+
       terminal = mkOption {
         default = lib.getExe pkgs.wezterm;
         type = types.str;
