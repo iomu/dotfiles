@@ -48,8 +48,13 @@ in {
       maven
       nixd
 
+      openscad-unstable
+      openscad-lsp
+
       kotlin
       ktlint
+
+      mise
 
       nodejs
 
