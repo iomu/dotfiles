@@ -7,6 +7,7 @@
     ./modules/fonts.nix
     ./modules/helix.nix
     ./modules/git.nix
+    ./modules/mise.nix
     ./modules/nix.nix
     ./modules/system-management/index.nix
     ./modules/terminal/default.nix

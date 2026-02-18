@@ -12,7 +12,7 @@ in {
     pkgs.cocoapods
     pkgs.rubyPackages.xcodeproj
     colima-docker
-    pkgs.docker-client
+    #pkgs.docker-client
     pkgs.docker-credential-helpers
     pkgs.docker-credential-gcr
     pkgs.streamlink

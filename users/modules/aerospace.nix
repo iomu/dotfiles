@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   programs.aerospace = {
     enable = true;
-    userSettings = {
+    settings = {
       mode = {
         main = {
           binding = {
