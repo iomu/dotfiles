@@ -220,11 +220,9 @@ in {
       ripgrep
 
       # Bash
-      nodePackages.bash-language-server
       shellcheck
 
       # Docker
-      nodePackages.dockerfile-language-server-nodejs
       hadolint
 
       # grammar
@@ -236,12 +234,6 @@ in {
       # Go
       gopls
       delve
-
-      # HTML/CSS/JS
-      nodePackages.vscode-langservers-extracted
-
-      # JavaScript/Typescript
-      nodePackages.typescript-language-server
 
       # Kotlin 
       kotlin-language-server

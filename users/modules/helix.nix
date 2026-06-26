@@ -34,12 +34,6 @@
     # rust
     # rust-analyzer
 
-    # bash
-    nodePackages.bash-language-server
-
-    # Docker
-    nodePackages.dockerfile-language-server-nodejs
-
     # Make
     cmake-language-server
 

@@ -9,7 +9,7 @@ in {
   home.packages = with pkgs; [ nixfmt depends nix-prefetch-github ];
   nix.package = pkgs.nix;
   nix.settings = {
-    experimental-features = "nix-command flakes";
+    experimental-features = "nix-command flakes pipe-operators";
     trusted-users = config.custom.user;
   };
 }
