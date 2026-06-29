@@ -11,9 +11,13 @@ let
 
     subPackages = [ "." ];
   };
+  docker-sbx = pkgs.callPackage ../../pkgs/docker-sbx/package.nix { };
 in {
   home.packages = with pkgs;
     [
+      claude-code
+      docker-sbx
+      just
       # docker
       docker-compose
 

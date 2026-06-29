@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
   programs.mise = {
-    enable = true;
+    enable = false;
   };
 }
