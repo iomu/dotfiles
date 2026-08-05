@@ -11,7 +11,7 @@ let
 
     subPackages = [ "." ];
   };
-  docker-sbx = pkgs.callPackage ../../pkgs/docker-sbx/package.nix { };
+  #docker-sbx = pkgs.callPackage ../../pkgs/docker-sbx/package.nix { };
 in {
   home.packages = with pkgs;
     [

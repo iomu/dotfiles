@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable-darwin.url = "github:nixos/nixpkgs/nixpkgs-26.05-darwin";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
@@ -16,10 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    csharp-language-server = {
-      url = "github:SofusA/csharp-language-server";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     evans = {
       url = "github:ktr0731/evans/v0.10.9";
@@ -45,7 +41,6 @@
       nixpkgs-system,
       home-manager,
       fenix,
-      csharp-language-server,
       ...
     }@inputs:
     let
@@ -61,14 +56,7 @@
           allowUnfree = true;
         };
         overlays =
-          attrValues self.overlays
-          ++ singleton (
-            # Sub in x86 version of packages that don't build on Apple Silicon yet
-            final: prev:
-            (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
-              inherit (final.pkgs-x86) click;
-            })
-          );
+          attrValues self.overlays;
       };
 
       pkgsForSystem = system: import nixpkgs { inherit system; };
@@ -143,22 +131,10 @@
         apple-silicon =
           final: prev:
           optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
-            # Add access to x86 packages system is running Apple Silicon
-            pkgs-x86 = import inputs.nixpkgs {
-              system = "x86_64-darwin";
-              config = {
-                allowUnfree = true;
-              };
-            };
           };
 
         fenix = fenix.overlays.default;
 
-        wezterm =
-          final: prev:
-          optionalAttrs (prev.stdenv.system == "x86_64-darwin") {
-            pkgs-wezterm = import inputs.nixpkgs-wezterm-fix { system = "x86_64-darwin"; };
-          };
 
         packages = final: prev: {
         };

@@ -59,6 +59,8 @@
 
   programs.fzf = { enable = true; };
 
+  programs.fzf.historyWidget.command = "";
+
   programs.skim = { enable = true; };
 
   programs.starship = {
@@ -120,6 +122,10 @@
       show_help = false;
       workspaces = true;
     };
+  };
+
+  programs.television = {
+    enable = true;
   };
 
   # generic completions

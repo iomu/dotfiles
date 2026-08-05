@@ -7,5 +7,5 @@
     ghostty = pkgs.ghostty-bin;
   };
 
-  home.packages = [ pkgs.graphviz inputs.csharp-language-server.packages."${builtins.currentSystem}".csharp-language-server pkgs.github-copilot-cli pkgs.azure-cli ];
+  home.packages = [ pkgs.graphviz pkgs.github-copilot-cli pkgs.azure-cli ];
 }
