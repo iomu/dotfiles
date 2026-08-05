@@ -55,6 +55,7 @@
       }
     '';
   };
+  xdg.configFile."direnv/lib/1password.sh" = { source = ./direnv/1password.sh; };
 
   programs.fzf = { enable = true; };
 
